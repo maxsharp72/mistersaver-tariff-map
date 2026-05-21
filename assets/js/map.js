@@ -140,7 +140,9 @@ function initMap() {
   const { GeoJSON } = ol.format;
   const { Style, Fill, Stroke } = ol.style;
   const { fromLonLat } = ol.proj;
-  const { Attribution, defaults: defaultControls } = ol.control;
+  // OL 9.x: ol.control.defaults — это namespace, функция лежит в ol.control.defaults.defaults().
+  // Ниже используем прямую ссылку через resolveDefaultControls().
+  const Attribution = ol.control.Attribution;
 
   // Подложка: Яндекс Tiles API (XYZ, бесплатный). Fallback — OSM. Подложка всегда 100% — прозрачностью управляет слой регионов.
   const { XYZ } = ol.source;
@@ -191,7 +193,7 @@ function initMap() {
   state.map = new Map({
     target: 'map',
     layers: [baseLayer, state.vectorLayer],
-    controls: defaultControls({ attribution: false }).extend([attributionControl]),
+    controls: resolveDefaultControls({ attribution: false }).extend([attributionControl]),
     view: new View({
       center: state.initialCenter,
       zoom: initialZoom,
@@ -267,6 +269,15 @@ function initMap() {
 /* =========================================================
    Мини-карта для страницы региона
    ========================================================= */
+// Резолвер ol.control.defaults() — в OL 9.x это namespace с вложенной функцией defaults().
+function resolveDefaultControls(opts) {
+  const cd = ol.control.defaults;
+  if (typeof cd === 'function') return cd(opts);
+  if (cd && typeof cd.defaults === 'function') return cd.defaults(opts);
+  // Крайний fallback — пустой Collection
+  return new ol.Collection();
+}
+
 function initMiniMap(container) {
   const { Map, View } = ol;
   const { Tile: TileLayer, Vector: VectorLayer } = ol.layer;
@@ -274,7 +285,7 @@ function initMiniMap(container) {
   const { GeoJSON } = ol.format;
   const { Style, Fill, Stroke } = ol.style;
   const { fromLonLat } = ol.proj;
-  const { Attribution, defaults: defaultControls } = ol.control;
+  const Attribution = ol.control.Attribution;
 
   const slug = container.dataset.region;
   const innerMap = container.querySelector('[id^="map-mini-"]');
@@ -319,19 +330,22 @@ function initMiniMap(container) {
       })
     : new TileLayer({ source: new OSM({ attributions: '© OpenStreetMap' }) });
 
+  // ol.interaction.defaults в OL 9.x тоже namespace — резолвим безопасно.
+  const id = ol.interaction.defaults;
+  const interactionsFn = typeof id === 'function' ? id : (id && id.defaults);
   const map = new Map({
     target: innerMap.id,
     layers: [baseLayer, vectorLayer],
-    controls: defaultControls({ attribution: false }).extend([
+    controls: resolveDefaultControls({ attribution: false }).extend([
       new Attribution({ collapsible: true, collapsed: true })
     ]),
-    interactions: ol.interaction.defaults({
+    interactions: interactionsFn ? interactionsFn({
       mouseWheelZoom: false,
       dragPan: false,
       doubleClickZoom: false,
       pinchRotate: false,
       pinchZoom: false
-    }),
+    }) : undefined,
     view: new View({
       center: fromLonLat([100, 65]),
       zoom: 2,

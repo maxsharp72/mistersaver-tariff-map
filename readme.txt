@@ -32,6 +32,9 @@ License: GPL v2 or later
 
 == Changelog ==
 
+= 0.2.3 =
+* Hotfix: исправлена ошибка 'defaultControls is not a function' в OL 9.x (резолвер ol.control.defaults)
+
 = 0.2.2 =
 * Hotfix: исправлен неправильный селектор обнаружения full-mode в main() (карта в 0.2.1 не инициализировалась)
 
