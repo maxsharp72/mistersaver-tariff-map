@@ -140,6 +140,7 @@ function initMap() {
   const { GeoJSON } = ol.format;
   const { Style, Fill, Stroke } = ol.style;
   const { fromLonLat } = ol.proj;
+  const { Attribution, defaults: defaultControls } = ol.control;
 
   // Подложка: Яндекс Tiles API (XYZ, бесплатный). Fallback — OSM. Подложка всегда 100% — прозрачностью управляет слой регионов.
   const { XYZ } = ol.source;
@@ -161,6 +162,12 @@ function initMap() {
       })
     });
   }
+
+  // Атрибуция: компактная сворачиваемая иконка «i» в правом нижнем
+  const attributionControl = new Attribution({
+    collapsible: true,
+    collapsed: true
+  });
 
   // Векторный слой регионов
   state.vectorSource = new VectorSource({
@@ -184,6 +191,7 @@ function initMap() {
   state.map = new Map({
     target: 'map',
     layers: [baseLayer, state.vectorLayer],
+    controls: defaultControls({ attribution: false }).extend([attributionControl]),
     view: new View({
       center: state.initialCenter,
       zoom: initialZoom,
@@ -248,10 +256,96 @@ function initMap() {
     state.vectorSource.changed();
   };
   document.getElementById('fullscreen').onclick = () => {
-    const el = document.getElementById('map-stage');
+    // Контейнер map-stage имеет уникальный id (map-stage-<instance>); ищем по классу внутри родителя.
+    const mapEl = document.getElementById('map');
+    const el = mapEl ? mapEl.closest('.map-stage') : null;
     if (document.fullscreenElement) document.exitFullscreen();
-    else el.requestFullscreen?.();
+    else if (el) el.requestFullscreen?.();
   };
+}
+
+/* =========================================================
+   Мини-карта для страницы региона
+   ========================================================= */
+function initMiniMap(container) {
+  const { Map, View } = ol;
+  const { Tile: TileLayer, Vector: VectorLayer } = ol.layer;
+  const { OSM, Vector: VectorSource, XYZ } = ol.source;
+  const { GeoJSON } = ol.format;
+  const { Style, Fill, Stroke } = ol.style;
+  const { fromLonLat } = ol.proj;
+  const { Attribution, defaults: defaultControls } = ol.control;
+
+  const slug = container.dataset.region;
+  const innerMap = container.querySelector('[id^="map-mini-"]');
+  if (!innerMap || !slug) return;
+
+  // Найдём фичу нужного региона
+  const features = new GeoJSON().readFeatures(state.geojson, {
+    featureProjection: 'EPSG:3857',
+    dataProjection: 'EPSG:4326'
+  });
+
+  const vectorSource = new VectorSource({ features });
+  const vectorLayer = new VectorLayer({
+    source: vectorSource,
+    style: (feature) => {
+      const props = feature.getProperties();
+      const isTarget = props.slug === slug;
+      if (!isTarget) {
+        return new Style({
+          fill: new Fill({ color: 'rgba(148,163,184,0.15)' }),
+          stroke: new Stroke({ color: '#CBD5E1', width: 0.5 })
+        });
+      }
+      const tierColor = TIER_COLORS[(props.tier || 1) - 1] || '#046BD2';
+      const [r, g, b] = hexToRgb(tierColor);
+      return new Style({
+        fill: new Fill({ color: `rgba(${r},${g},${b},0.55)` }),
+        stroke: new Stroke({ color: '#046BD2', width: 2 })
+      });
+    }
+  });
+
+  const YANDEX_KEY = (window.__MS_YANDEX_KEY__ || '').trim();
+  const baseLayer = YANDEX_KEY
+    ? new TileLayer({
+        source: new XYZ({
+          url: `https://tiles.api-maps.yandex.ru/v1/tiles/?apikey=${YANDEX_KEY}&lang=ru_RU&x={x}&y={y}&z={z}&l=map`,
+          attributions: '© Яндекс Карты',
+          maxZoom: 19,
+          crossOrigin: 'anonymous'
+        })
+      })
+    : new TileLayer({ source: new OSM({ attributions: '© OpenStreetMap' }) });
+
+  const map = new Map({
+    target: innerMap.id,
+    layers: [baseLayer, vectorLayer],
+    controls: defaultControls({ attribution: false }).extend([
+      new Attribution({ collapsible: true, collapsed: true })
+    ]),
+    interactions: ol.interaction.defaults({
+      mouseWheelZoom: false,
+      dragPan: false,
+      doubleClickZoom: false,
+      pinchRotate: false,
+      pinchZoom: false
+    }),
+    view: new View({
+      center: fromLonLat([100, 65]),
+      zoom: 2,
+      minZoom: 1,
+      maxZoom: 8
+    })
+  });
+
+  // Зум на регион
+  const target = features.find(f => f.get('slug') === slug);
+  if (target) {
+    const ext = target.getGeometry().getExtent();
+    map.getView().fit(ext, { padding: [24, 24, 24, 24], maxZoom: 6 });
+  }
 }
 
 function styleForFeature(feature) {
@@ -358,14 +452,20 @@ function showTooltip(feature, pixel) {
     <div class="map-tooltip__cta">Кликните, чтобы открыть страницу региона →</div>
   `;
   tt.classList.add('show');
-  // Позиционирование
-  const stage = document.getElementById('map-stage');
+  // Позиционирование: pixel приходит от OL и относится к контейнеру #map.
+  // Tooltip лежит внутри .map-stage (sibling #map), а .map-stage = position:relative.
+  // Поскольку #map = position:absolute; inset:0 — координаты совпадают.
+  const mapEl = document.getElementById('map');
+  const stage = mapEl ? mapEl.closest('.map-stage') : null;
+  if (!stage) return;
   const w = tt.offsetWidth;
   const h = tt.offsetHeight;
   let x = pixel[0] + 16;
   let y = pixel[1] + 16;
   if (x + w > stage.clientWidth - 8) x = pixel[0] - w - 16;
   if (y + h > stage.clientHeight - 8) y = pixel[1] - h - 16;
+  if (x < 8) x = 8;
+  if (y < 8) y = 8;
   tt.style.left = x + 'px';
   tt.style.top = y + 'px';
 }
@@ -905,6 +1005,16 @@ function initBackToMap() {
    Старт
    ========================================================= */
 (async function main() {
+  // Mini-mode: страница региона. Только мини-карта, без UI таблицы/фильтров.
+  const miniContainer = document.querySelector('.ms-tariff-map--mini');
+  if (miniContainer && !document.querySelector('.ms-tariff-map--full')) {
+    await loadData();
+    initMiniMap(miniContainer);
+    return;
+  }
+
+  // Full-mode: главная карта.
+  if (!document.querySelector('.ms-tariff-map--full')) return;
   await loadData();
   // Пересчитаем тиры по выбранному слою
   state.regions.forEach(r => {
