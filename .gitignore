@@ -1,0 +1,10 @@
+.DS_Store
+Thumbs.db
+*.log
+*.bak
+*.swp
+node_modules/
+vendor/
+.idea/
+.vscode/
+*.zip
