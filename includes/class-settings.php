@@ -30,6 +30,12 @@ class MS_Tariff_Map_Settings {
             'default'           => [],
         ] );
 
+        // Обработчики admin-action для кнопок «Импорт» / «ЛЛМ» / «Очистить».
+        add_action( 'admin_post_ms_tariffs_import',    [ self::class, 'handle_import' ] );
+        add_action( 'admin_post_ms_tariffs_llm',       [ self::class, 'handle_generate' ] );
+        add_action( 'admin_post_ms_tariffs_flush',     [ self::class, 'handle_flush' ] );
+        add_action( 'admin_post_ms_tariffs_uninstall', [ self::class, 'handle_uninstall' ] );
+
         add_settings_section( 'ms_api_section', 'API ключи', null, self::PAGE_SLUG );
 
         self::field( 'yandex_api_key',     'Яндекс Tiles API ключ',     'Бесплатный ключ из <a href="https://developer.tech.yandex.ru/" target="_blank">кабинета разработчика Яндекс Карт</a>', 'ms_api_section' );
@@ -63,7 +69,109 @@ class MS_Tariff_Map_Settings {
         return $clean;
     }
 
+    /**
+     * Блок «Статус» вверху секции действий.
+     */
+    private static function render_status_box(): void {
+        $count = wp_count_posts( MS_Tariff_Map_CPT::POST_TYPE );
+        $published = (int) ( $count->publish ?? 0 );
+        $with_llm = (int) get_posts( [
+            'post_type'      => MS_Tariff_Map_CPT::POST_TYPE,
+            'meta_key'       => '_ms_llm_generated_at',
+            'posts_per_page' => -1,
+            'fields'         => 'ids',
+        ] );
+        $with_llm_count = is_array( $with_llm ) ? count( $with_llm ) : $with_llm;
+        ?>
+        <div style="display:flex; gap:12px; margin-bottom:8px;">
+            <div style="background:#fff; border:1px solid #c3c4c7; border-radius:8px; padding:14px 18px; min-width:160px;">
+                <div style="font-size:12px; color:#646970; text-transform:uppercase;">Регионов в БД</div>
+                <div style="font-size:28px; font-weight:700; color:<?php echo $published > 0 ? '#16A34A' : '#DC2626'; ?>"><?php echo (int) $published; ?> / 89</div>
+            </div>
+            <div style="background:#fff; border:1px solid #c3c4c7; border-radius:8px; padding:14px 18px; min-width:160px;">
+                <div style="font-size:12px; color:#646970; text-transform:uppercase;">С LLM-текстом</div>
+                <div style="font-size:28px; font-weight:700; color:#046BD2"><?php echo (int) $with_llm_count; ?></div>
+            </div>
+            <div style="background:#fff; border:1px solid #c3c4c7; border-radius:8px; padding:14px 18px; min-width:200px;">
+                <div style="font-size:12px; color:#646970; text-transform:uppercase;">Карта</div>
+                <?php if ( $published > 0 ) : ?>
+                    <a href="<?php echo esc_url( get_post_type_archive_link( MS_Tariff_Map_CPT::POST_TYPE ) ); ?>" target="_blank" style="font-size:14px; font-weight:600;">Открыть /tarify-zhku/ ↗</a>
+                <?php else : ?>
+                    <div style="color:#646970;">Сначала импортируйте данные</div>
+                <?php endif; ?>
+            </div>
+        </div>
+        <?php
+    }
+
+    /**
+     * Admin actions.
+     */
+    public static function handle_import(): void {
+        check_admin_referer( 'ms_tariffs_import' );
+        if ( ! current_user_can( 'manage_options' ) ) wp_die( 'Forbidden' );
+        $result = MS_Tariff_Map_Importer::import_default();
+        if ( ! $result['success'] ) {
+            self::redirect_with_message( 'error', $result['message'] );
+        }
+        $msg = sprintf(
+            'Импорт завершён. Создано: %d, обновлено: %d, пропущено: %d, ошибок: %d',
+            $result['created'], $result['updated'], $result['skipped'], count( $result['errors'] )
+        );
+        self::redirect_with_message( 'success', $msg );
+    }
+
+    public static function handle_generate(): void {
+        check_admin_referer( 'ms_tariffs_llm' );
+        if ( ! current_user_can( 'manage_options' ) ) wp_die( 'Forbidden' );
+        // Ограничим лимитом 10 регионов за раз — иначе PHP вывалится по таймауту на reg.ru.
+        @set_time_limit( 120 );
+        $stats = MS_Tariff_Map_LLM_Generator::generate_for_all( false, 10 );
+        $msg = sprintf(
+            'LLM-генерация за 1 батч (10 регионов): успешно %d, пропущено %d, ошибок %d. Нажмите ещё раз для продолжения.',
+            $stats['success'], $stats['skipped'], count( $stats['errors'] )
+        );
+        if ( ! empty( $stats['errors'] ) ) {
+            $msg .= ' Ошибки: ' . esc_html( implode( '; ', array_slice( $stats['errors'], 0, 3 ) ) );
+        }
+        self::redirect_with_message( 'success', $msg );
+    }
+
+    public static function handle_flush(): void {
+        check_admin_referer( 'ms_tariffs_flush' );
+        if ( ! current_user_can( 'manage_options' ) ) wp_die( 'Forbidden' );
+        MS_Tariff_Map_REST::invalidate_cache();
+        flush_rewrite_rules();
+        self::redirect_with_message( 'success', 'Кеш сброшен, rewrite-правила обновлены.' );
+    }
+
+    public static function handle_uninstall(): void {
+        check_admin_referer( 'ms_tariffs_uninstall' );
+        if ( ! current_user_can( 'manage_options' ) ) wp_die( 'Forbidden' );
+        $posts = get_posts( [ 'post_type' => MS_Tariff_Map_CPT::POST_TYPE, 'posts_per_page' => -1, 'fields' => 'ids', 'post_status' => 'any' ] );
+        foreach ( $posts as $pid ) wp_delete_post( $pid, true );
+        MS_Tariff_Map_REST::invalidate_cache();
+        self::redirect_with_message( 'success', sprintf( 'Удалено %d записей.', count( $posts ) ) );
+    }
+
+    private static function redirect_with_message( string $type, string $msg ): void {
+        $url = add_query_arg( [
+            'page'   => self::PAGE_SLUG,
+            'ms_msg' => urlencode( $msg ),
+            'ms_t'   => $type,
+        ], admin_url( 'edit.php?post_type=' . MS_Tariff_Map_CPT::POST_TYPE ) );
+        wp_safe_redirect( $url );
+        exit;
+    }
+
     public static function render_page(): void {
+        // Сообщения после admin_post.
+        if ( ! empty( $_GET['ms_msg'] ) ) {
+            $type = sanitize_key( $_GET['ms_t'] ?? 'success' );
+            $msg = sanitize_text_field( wp_unslash( $_GET['ms_msg'] ) );
+            $class = $type === 'error' ? 'notice-error' : 'notice-success';
+            echo '<div class="notice ' . esc_attr( $class ) . ' is-dismissible"><p>' . esc_html( $msg ) . '</p></div>';
+        }
         ?>
         <div class="wrap">
             <h1>Настройки MisterSaver Tariff Map</h1>
@@ -76,8 +184,44 @@ class MS_Tariff_Map_Settings {
             </form>
 
             <hr>
-            <h2>WP-CLI команды</h2>
-            <p>Управление данными удобнее всего через WP-CLI:</p>
+            <h2>📥 Действия с данными</h2>
+
+            <?php self::render_status_box(); ?>
+
+            <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:16px;">
+
+                <form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" style="margin:0;">
+                    <?php wp_nonce_field( 'ms_tariffs_import' ); ?>
+                    <input type="hidden" name="action" value="ms_tariffs_import">
+                    <button class="button button-primary button-large" type="submit">⬇ Импортировать 89 регионов</button>
+                    <p class="description" style="margin:6px 0 0;">Создаёт/обновляет записи из data/regions-tariffs.json</p>
+                </form>
+
+                <form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" style="margin:0;">
+                    <?php wp_nonce_field( 'ms_tariffs_llm' ); ?>
+                    <input type="hidden" name="action" value="ms_tariffs_llm">
+                    <button class="button button-large" type="submit" <?php echo empty( get_option( self::OPTION_NAME )['openrouter_api_key'] ?? '' ) ? 'disabled title="Сначала введите OpenRouter API ключ"' : ''; ?>>✍ Сгенерировать тексты (LLM)</button>
+                    <p class="description" style="margin:6px 0 0;">Объявляет OpenRouter для всех регионов без LLM-контента</p>
+                </form>
+
+                <form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" style="margin:0;">
+                    <?php wp_nonce_field( 'ms_tariffs_flush' ); ?>
+                    <input type="hidden" name="action" value="ms_tariffs_flush">
+                    <button class="button button-large" type="submit">⟳ Сбросить кеш</button>
+                    <p class="description" style="margin:6px 0 0;">Инвалидирует REST-кеш + flush rewrite</p>
+                </form>
+
+                <form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" style="margin:0; margin-left:auto;" onsubmit="return confirm('Уверены? Будут удалены ВСЕ 89 записей регионов. Данные можно будет вернуть через повторный импорт.');">
+                    <?php wp_nonce_field( 'ms_tariffs_uninstall' ); ?>
+                    <input type="hidden" name="action" value="ms_tariffs_uninstall">
+                    <button class="button button-link-delete" type="submit">🗑 Удалить все записи</button>
+                </form>
+
+            </div>
+
+            <hr>
+            <h2>⚡ WP-CLI команды (альтернатива)</h2>
+            <p>Если у вас есть SSH и WP-CLI:</p>
             <pre style="background:#f3f4f6;padding:14px;border-radius:6px;">
 wp ms-tariffs status                  # статистика по регионам
 wp ms-tariffs import                  # импорт из data/regions-tariffs.json
