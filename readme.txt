@@ -32,6 +32,11 @@ License: GPL v2 or later
 
 == Changelog ==
 
+= 0.2.4 =
+* Полный отказ от OL Attribution/Rotate контролов — атрибуция нарисована как HTML-div в правом нижнем
+* Убрана лишняя иконка-стрелка (Rotate control) в левом верхнем
+* То же для мини-карты на странице региона
+
 = 0.2.3 =
 * Hotfix: исправлена ошибка 'defaultControls is not a function' в OL 9.x (резолвер ol.control.defaults)
 

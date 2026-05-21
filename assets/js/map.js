@@ -140,11 +140,8 @@ function initMap() {
   const { GeoJSON } = ol.format;
   const { Style, Fill, Stroke } = ol.style;
   const { fromLonLat } = ol.proj;
-  // OL 9.x: ol.control.defaults — это namespace, функция лежит в ol.control.defaults.defaults().
-  // Ниже используем прямую ссылку через resolveDefaultControls().
-  const Attribution = ol.control.Attribution;
 
-  // Подложка: Яндекс Tiles API (XYZ, бесплатный). Fallback — OSM. Подложка всегда 100% — прозрачностью управляет слой регионов.
+  // Подложка: Яндекс Tiles API. Attribution отключаем всё — отрисуем свою в HTML.
   const { XYZ } = ol.source;
   const YANDEX_KEY = (window.__MS_YANDEX_KEY__ || '').trim();
   let baseLayer;
@@ -152,7 +149,7 @@ function initMap() {
     baseLayer = new TileLayer({
       source: new XYZ({
         url: `https://tiles.api-maps.yandex.ru/v1/tiles/?apikey=${YANDEX_KEY}&lang=ru_RU&x={x}&y={y}&z={z}&l=map`,
-        attributions: '© Яндекс Карты, тарифы © ФАС / Росстат',
+        attributions: [],
         maxZoom: 19,
         crossOrigin: 'anonymous'
       })
@@ -160,16 +157,10 @@ function initMap() {
   } else {
     baseLayer = new TileLayer({
       source: new OSM({
-        attributions: '© OpenStreetMap, тарифы © ФАС / Росстат'
+        attributions: []
       })
     });
   }
-
-  // Атрибуция: компактная сворачиваемая иконка «i» в правом нижнем
-  const attributionControl = new Attribution({
-    collapsible: true,
-    collapsed: true
-  });
 
   // Векторный слой регионов
   state.vectorSource = new VectorSource({
@@ -190,10 +181,11 @@ function initMap() {
   const initialZoom = w <= 480 ? 1.7 : w <= 768 ? 2.0 : w <= 1100 ? 2.6 : 3.0;
   state.initialZoom = initialZoom;
   state.initialCenter = fromLonLat([100, 65]);
+  // Никаких дефолтных контролов OL — всё своё (zoom в верхнем-правом, attribution в HTML).
   state.map = new Map({
     target: 'map',
     layers: [baseLayer, state.vectorLayer],
-    controls: resolveDefaultControls({ attribution: false }).extend([attributionControl]),
+    controls: new ol.Collection(),
     view: new View({
       center: state.initialCenter,
       zoom: initialZoom,
@@ -201,6 +193,18 @@ function initMap() {
       maxZoom: 8
     })
   });
+
+  // Отрисуем HTML-атрибуцию в правом нижнем углу .map-stage (если её ещё нет).
+  const mapEl0 = document.getElementById('map');
+  const stage0 = mapEl0 ? mapEl0.closest('.map-stage') : null;
+  if (stage0 && !stage0.querySelector('.ms-attrib')) {
+    const a = document.createElement('div');
+    a.className = 'ms-attrib';
+    a.textContent = YANDEX_KEY
+      ? '© Яндекс Карты · Тарифы: ФАС / Росстат'
+      : '© OpenStreetMap · Тарифы: ФАС / Росстат';
+    stage0.appendChild(a);
+  }
 
   // Hover события
   let lastHover = null;
@@ -285,7 +289,6 @@ function initMiniMap(container) {
   const { GeoJSON } = ol.format;
   const { Style, Fill, Stroke } = ol.style;
   const { fromLonLat } = ol.proj;
-  const Attribution = ol.control.Attribution;
 
   const slug = container.dataset.region;
   const innerMap = container.querySelector('[id^="map-mini-"]');
@@ -323,29 +326,19 @@ function initMiniMap(container) {
     ? new TileLayer({
         source: new XYZ({
           url: `https://tiles.api-maps.yandex.ru/v1/tiles/?apikey=${YANDEX_KEY}&lang=ru_RU&x={x}&y={y}&z={z}&l=map`,
-          attributions: '© Яндекс Карты',
+          attributions: [],
           maxZoom: 19,
           crossOrigin: 'anonymous'
         })
       })
-    : new TileLayer({ source: new OSM({ attributions: '© OpenStreetMap' }) });
+    : new TileLayer({ source: new OSM({ attributions: [] }) });
 
-  // ol.interaction.defaults в OL 9.x тоже namespace — резолвим безопасно.
-  const id = ol.interaction.defaults;
-  const interactionsFn = typeof id === 'function' ? id : (id && id.defaults);
+  // Никаких интеракций, никаких контролов OL в мини-карте.
   const map = new Map({
     target: innerMap.id,
     layers: [baseLayer, vectorLayer],
-    controls: resolveDefaultControls({ attribution: false }).extend([
-      new Attribution({ collapsible: true, collapsed: true })
-    ]),
-    interactions: interactionsFn ? interactionsFn({
-      mouseWheelZoom: false,
-      dragPan: false,
-      doubleClickZoom: false,
-      pinchRotate: false,
-      pinchZoom: false
-    }) : undefined,
+    controls: new ol.Collection(),
+    interactions: new ol.Collection(),
     view: new View({
       center: fromLonLat([100, 65]),
       zoom: 2,
@@ -353,6 +346,15 @@ function initMiniMap(container) {
       maxZoom: 8
     })
   });
+
+  // HTML-атрибуция в правом нижнем углу контейнера мини-карты.
+  if (!container.querySelector('.ms-attrib')) {
+    const a = document.createElement('div');
+    a.className = 'ms-attrib ms-attrib--mini';
+    a.textContent = YANDEX_KEY ? '© Яндекс Карты' : '© OpenStreetMap';
+    container.style.position = 'relative';
+    container.appendChild(a);
+  }
 
   // Зум на регион
   const target = features.find(f => f.get('slug') === slug);
