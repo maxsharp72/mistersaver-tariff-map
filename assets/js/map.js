@@ -1006,15 +1006,21 @@ function initBackToMap() {
    ========================================================= */
 (async function main() {
   // Mini-mode: страница региона. Только мини-карта, без UI таблицы/фильтров.
+  // Full-mode определяем по наличию #map (из map-full.php), mini — по .ms-tariff-map--mini.
+  const fullContainer = document.getElementById('map');
   const miniContainer = document.querySelector('.ms-tariff-map--mini');
-  if (miniContainer && !document.querySelector('.ms-tariff-map--full')) {
-    await loadData();
-    initMiniMap(miniContainer);
+
+  if (!fullContainer && miniContainer) {
+    try {
+      await loadData();
+      initMiniMap(miniContainer);
+    } catch (e) {
+      console.error('[ms-tariff-map] mini init failed:', e);
+    }
     return;
   }
 
-  // Full-mode: главная карта.
-  if (!document.querySelector('.ms-tariff-map--full')) return;
+  if (!fullContainer) return;
   await loadData();
   // Пересчитаем тиры по выбранному слою
   state.regions.forEach(r => {
