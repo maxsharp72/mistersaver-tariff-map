@@ -78,7 +78,9 @@ while ( have_posts() ) :
     <?php include MS_TARIFF_MAP_DIR . 'templates/parts/avg-payment-card.php'; ?>
 
     <?php // [Блок 3.5] Партнёрские CTA — сразу после суммы платежа ?>
+    <!-- MS-DEBUG: partner-cta about to include from <?php echo esc_html( MS_TARIFF_MAP_DIR . 'templates/parts/partner-cta.php' ); ?> file_exists=<?php echo file_exists( MS_TARIFF_MAP_DIR . 'templates/parts/partner-cta.php' ) ? 'YES' : 'NO'; ?> ts=<?php echo date( 'H:i:s' ); ?> -->
     <?php include MS_TARIFF_MAP_DIR . 'templates/parts/partner-cta.php'; ?>
+    <!-- MS-DEBUG: partner-cta after include -->
 
     <?php // [Блок 4] Индексация ?>
     <?php include MS_TARIFF_MAP_DIR . 'templates/parts/indexation-card.php'; ?>
