@@ -193,6 +193,6 @@ defined( 'ABSPATH' ) || exit;
     </table>
 
     <div class="back-to-map-wrap">
-        <button class="back-to-map-btn" id="back-to-map"><svg class="back-to-map-btn__ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 14V7h3.75L8 1.25 2.25 7H6v7zM4.664 6L8 2.664 11.336 6H9v7H7V6z"/></svg> Вернуться к карте</button>
+        <button class="back-to-map-btn" id="back-to-map"><svg class="back-to-map-btn__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg> Вернуться к карте</button>
     </div>
 </section>

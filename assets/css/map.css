@@ -467,9 +467,9 @@ img { max-width: 100%; display: block; }
 /* «Вернуться к карте» */
 .back-to-map-btn { display: inline-flex; align-items: center; gap: 8px; }
 .back-to-map-btn__ico {
-  width: 16px; height: 16px;
-  fill: currentColor;
+  width: 18px; height: 18px;
   flex-shrink: 0;
+  /* Lucide stroke icon — fill:none + stroke:currentColor (в самом SVG) */
 }
 
 /* Стрелка сортировки в заголовке таблицы */
