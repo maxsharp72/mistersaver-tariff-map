@@ -32,6 +32,9 @@ License: GPL v2 or later
 
 == Changelog ==
 
+= 0.2.5 =
+* Добавлены хлебные крошки на странице региона: RankMath если включён, иначе — ручный fallback с микроразметкой BreadcrumbList
+
 = 0.2.4 =
 * Полный отказ от OL Attribution/Rotate контролов — атрибуция нарисована как HTML-div в правом нижнем
 * Убрана лишняя иконка-стрелка (Rotate control) в левом верхнем

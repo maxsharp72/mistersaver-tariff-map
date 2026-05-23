@@ -26,6 +26,30 @@ while ( have_posts() ) :
 
 <main class="ms-region-page">
 
+    <?php // [Крошки] RankMath если включён, иначе — ручные ?>
+    <nav class="ms-region-page__breadcrumbs" aria-label="Хлебные крошки">
+        <?php if ( function_exists( 'rank_math_the_breadcrumbs' ) ) : ?>
+            <?php rank_math_the_breadcrumbs(); ?>
+        <?php else : ?>
+            <ol class="ms-breadcrumbs ms-breadcrumbs--fallback" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="<?php echo esc_url( home_url( '/' ) ); ?>"><span itemprop="name">Главная</span></a>
+                    <meta itemprop="position" content="1" />
+                </li>
+                <li class="sep" aria-hidden="true">›</li>
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="<?php echo esc_url( get_post_type_archive_link( 'region_tariff' ) ); ?>"><span itemprop="name">Карта тарифов ЖКУ</span></a>
+                    <meta itemprop="position" content="2" />
+                </li>
+                <li class="sep" aria-hidden="true">›</li>
+                <li class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <span itemprop="name"><?php echo esc_html( $region_full ); ?></span>
+                    <meta itemprop="position" content="3" />
+                </li>
+            </ol>
+        <?php endif; ?>
+    </nav>
+
     <header class="ms-region-page__head">
         <h1><?php echo esc_html( $region_full ); ?></h1>
         <p class="ms-region-page__meta">
