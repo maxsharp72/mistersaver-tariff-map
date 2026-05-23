@@ -78,9 +78,7 @@ while ( have_posts() ) :
     <?php include MS_TARIFF_MAP_DIR . 'templates/parts/avg-payment-card.php'; ?>
 
     <?php // [Блок 3.5] Партнёрские CTA — сразу после суммы платежа ?>
-    <!-- MS-DEBUG: partner-cta about to include from <?php echo esc_html( MS_TARIFF_MAP_DIR . 'templates/parts/partner-cta.php' ); ?> file_exists=<?php echo file_exists( MS_TARIFF_MAP_DIR . 'templates/parts/partner-cta.php' ) ? 'YES' : 'NO'; ?> ts=<?php echo date( 'H:i:s' ); ?> -->
     <?php include MS_TARIFF_MAP_DIR . 'templates/parts/partner-cta.php'; ?>
-    <!-- MS-DEBUG: partner-cta after include -->
 
     <?php // [Блок 4] Индексация ?>
     <?php include MS_TARIFF_MAP_DIR . 'templates/parts/indexation-card.php'; ?>
@@ -93,8 +91,7 @@ while ( have_posts() ) :
     <?php // [Блок 6] FAQ — выводится в Schema.org, тут можем дублировать визуально ?>
     <?php include MS_TARIFF_MAP_DIR . 'templates/parts/faq.php'; ?>
 
-    <?php // [Блок 7] CTA-блок партнёра ?>
-    <?php include MS_TARIFF_MAP_DIR . 'templates/parts/cta-partner.php'; ?>
+    <?php // [Блок 7] Старая синяя плашка cta-partner.php — убрана в 0.2.9 (заменена на partner-cta.php в [Блок 3.5]) ?>
 
     <?php // [Блок 8] Похожие регионы ?>
     <?php include MS_TARIFF_MAP_DIR . 'templates/parts/similar-regions.php'; ?>
