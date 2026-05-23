@@ -35,6 +35,7 @@ class MS_Tariff_Map_Settings {
         add_action( 'admin_post_ms_tariffs_llm',       [ self::class, 'handle_generate' ] );
         add_action( 'admin_post_ms_tariffs_flush',     [ self::class, 'handle_flush' ] );
         add_action( 'admin_post_ms_tariffs_uninstall', [ self::class, 'handle_uninstall' ] );
+        add_action( 'admin_post_ms_tariffs_reset_clicks', [ self::class, 'handle_reset_clicks' ] );
 
         add_settings_section( 'ms_api_section', 'API ключи', null, self::PAGE_SLUG );
 
@@ -154,6 +155,100 @@ class MS_Tariff_Map_Settings {
         self::redirect_with_message( 'success', sprintf( 'Удалено %d записей.', count( $posts ) ) );
     }
 
+    public static function handle_reset_clicks(): void {
+        check_admin_referer( 'ms_tariffs_reset_clicks' );
+        if ( ! current_user_can( 'manage_options' ) ) wp_die( 'Forbidden' );
+        MS_Tariff_Map_Redirector::reset_log();
+        self::redirect_with_message( 'success', 'Лог партнёрских кликов очищен.' );
+    }
+
+    /**
+     * Блок статистики партнёрских кликов.
+     */
+    private static function render_clicks_section(): void {
+        $stats = MS_Tariff_Map_Redirector::get_stats();
+        $log   = MS_Tariff_Map_Redirector::get_log();
+        $total = array_sum( $stats );
+
+        // Сводка по предложениям
+        $by_offer = [];
+        foreach ( $stats as $key => $cnt ) {
+            [ $slug, ] = array_pad( explode( '|', $key, 2 ), 2, '' );
+            $by_offer[ $slug ] = ( $by_offer[ $slug ] ?? 0 ) + (int) $cnt;
+        }
+
+        // Топ-10 регионов
+        $by_region = [];
+        foreach ( $stats as $key => $cnt ) {
+            $parts = explode( '|', $key, 2 );
+            $region = $parts[1] ?? '';
+            if ( $region && $region !== '__all__' ) {
+                $by_region[ $region ] = ( $by_region[ $region ] ?? 0 ) + (int) $cnt;
+            }
+        }
+        arsort( $by_region );
+        $top_regions = array_slice( $by_region, 0, 10, true );
+        ?>
+        <hr>
+        <h2>📊 Партнёрские клики</h2>
+
+        <?php if ( $total === 0 ) : ?>
+            <p style="color:#646970;">Пока кликов нет. Ссылки логируются при первом переходе через <code>/go/{slug}/</code>.</p>
+        <?php else : ?>
+            <div style="display:flex; gap:12px; margin-bottom:14px;">
+                <div style="background:#fff; border:1px solid #c3c4c7; border-radius:8px; padding:14px 18px; min-width:160px;">
+                    <div style="font-size:12px; color:#646970; text-transform:uppercase;">Всего кликов</div>
+                    <div style="font-size:28px; font-weight:700; color:#046BD2"><?php echo (int) $total; ?></div>
+                </div>
+                <?php foreach ( $by_offer as $offer_slug => $cnt ) :
+                    $label = $offer_slug === 'cashback' ? 'Кешбэк-карта' : ( $offer_slug === 'tbank' ? 'Т-Банк / Оплата ЖКУ' : $offer_slug );
+                ?>
+                    <div style="background:#fff; border:1px solid #c3c4c7; border-radius:8px; padding:14px 18px; min-width:160px;">
+                        <div style="font-size:12px; color:#646970; text-transform:uppercase;"><?php echo esc_html( $label ); ?></div>
+                        <div style="font-size:28px; font-weight:700; color:#16A34A"><?php echo (int) $cnt; ?></div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+
+            <?php if ( ! empty( $top_regions ) ) : ?>
+                <h3>Топ-10 регионов по кликам</h3>
+                <table class="widefat striped" style="max-width:520px;">
+                    <thead><tr><th>Регион (slug)</th><th style="text-align:right;">Кликов</th></tr></thead>
+                    <tbody>
+                        <?php foreach ( $top_regions as $region => $cnt ) : ?>
+                            <tr><td><code><?php echo esc_html( $region ); ?></code></td><td style="text-align:right;"><?php echo (int) $cnt; ?></td></tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            <?php endif; ?>
+
+            <h3 style="margin-top:18px;">Последние 20 кликов</h3>
+            <table class="widefat striped">
+                <thead><tr><th>Дата</th><th>Предложение</th><th>Регион</th><th>Страница</th><th>IP</th></tr></thead>
+                <tbody>
+                <?php
+                $recent = array_slice( array_reverse( $log ), 0, 20 );
+                foreach ( $recent as $row ) : ?>
+                    <tr>
+                        <td><?php echo esc_html( $row['ts'] ?? '' ); ?></td>
+                        <td><?php echo esc_html( $row['slug'] ?? '' ); ?></td>
+                        <td><code><?php echo esc_html( $row['region'] ?? '' ); ?></code></td>
+                        <td style="font-size:11px;"><?php echo esc_html( wp_parse_url( $row['referer'] ?? '', PHP_URL_PATH ) ?? '' ); ?></td>
+                        <td style="font-size:11px;"><?php echo esc_html( $row['ip'] ?? '' ); ?></td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+
+            <form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" style="margin-top:12px;" onsubmit="return confirm('Очистить всю статистику и лог?');">
+                <?php wp_nonce_field( 'ms_tariffs_reset_clicks' ); ?>
+                <input type="hidden" name="action" value="ms_tariffs_reset_clicks">
+                <button class="button" type="submit">Очистить лог кликов</button>
+            </form>
+        <?php endif; ?>
+        <?php
+    }
+
     private static function redirect_with_message( string $type, string $msg ): void {
         $url = add_query_arg( [
             'page'   => self::PAGE_SLUG,
@@ -230,6 +325,8 @@ wp ms-tariffs generate-content        # LLM для всех без контен�
 wp ms-tariffs generate-content --force --slug=moskva
 wp ms-tariffs flush-cache             # сбросить кеш REST
             </pre>
+
+            <?php self::render_clicks_section(); ?>
 
             <h2>Шорткоды</h2>
             <pre style="background:#f3f4f6;padding:14px;border-radius:6px;">
