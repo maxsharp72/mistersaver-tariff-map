@@ -11,6 +11,9 @@ get_header(); ?>
 
 <main class="ms-tariff-archive">
     <?php echo do_shortcode( '[ms_tariff_map mode="full"]' ); ?>
+
+    <?php // Сквозной партнёрский CTA под картой ?>
+    <?php include MS_TARIFF_MAP_DIR . 'templates/parts/partner-cta.php'; ?>
 </main>
 
 <?php get_footer();

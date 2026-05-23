@@ -77,6 +77,9 @@ while ( have_posts() ) :
     <?php // [Блок 3] Средний платёж ?>
     <?php include MS_TARIFF_MAP_DIR . 'templates/parts/avg-payment-card.php'; ?>
 
+    <?php // [Блок 3.5] Партнёрские CTA — сразу после суммы платежа ?>
+    <?php include MS_TARIFF_MAP_DIR . 'templates/parts/partner-cta.php'; ?>
+
     <?php // [Блок 4] Индексация ?>
     <?php include MS_TARIFF_MAP_DIR . 'templates/parts/indexation-card.php'; ?>
 

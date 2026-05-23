@@ -11,7 +11,12 @@ $idx_2025 = MS_Tariff_Map_ACF::get( $region_id, 'index_2025' );
 $idx_2026 = MS_Tariff_Map_ACF::get( $region_id, 'index_2026', 4.0 );
 ?>
 <section class="ms-region-page__index">
-    <h2>Индексация тарифов</h2>
+    <h2>
+        <svg class="section-title-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/>
+        </svg>
+        Индексация тарифов
+    </h2>
     <table class="regions-table">
         <thead>
             <tr><th>Год</th><th class="num">Рост тарифов, %</th><th>Источник</th></tr>
