@@ -12,8 +12,8 @@ $headline = $region_name_local
     ? 'Платить за ЖКУ в ' . esc_html( $region_name_local ) . ' выгоднее'
     : 'Платить за ЖКУ выгоднее';
 
-// Базовые стили карточки одной строкой
-$card_style = 'display:flex;align-items:center;gap:14px;padding:16px 18px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;text-decoration:none;color:#0F172A;box-shadow:0 1px 2px rgba(15,23,42,.04);min-height:76px;box-sizing:border-box;transition:transform .15s,box-shadow .15s,border-color .15s;';
+// Базовые стили карточки одной строкой. !important повсюду — перебиваем тему Astra.
+$card_style = 'display:flex !important;align-items:center !important;gap:14px !important;padding:16px 18px !important;background:#fff !important;border:1px solid #e2e8f0 !important;border-radius:12px !important;text-decoration:none !important;color:#0F172A !important;box-shadow:0 1px 2px rgba(15,23,42,.04) !important;min-height:76px !important;box-sizing:border-box !important;width:auto !important;visibility:visible !important;opacity:1 !important;';
 $icon_box   = 'flex-shrink:0;width:44px;height:44px;border-radius:10px;background:rgba(4,107,210,.08);color:#046BD2;display:flex;align-items:center;justify-content:center;';
 $icon_svg   = 'width:22px;height:22px;display:block;';
 $body_style = 'flex:1 1 auto;min-width:0;';
