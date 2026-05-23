@@ -32,6 +32,10 @@ License: GPL v2 or later
 
 == Changelog ==
 
+= 0.2.16 =
+* Партнёрский редиректор (обход AdBlock): ссылки ведут на mistersaver.ru/go/{slug}/, сервер отдаёт 302 на go.leadgid.ru
+* Новый дизайн партнёрских кнопок: синие брендовые с иконками Lucide (credit-card и receipt) вместо стрелок
+
 = 0.2.15 =
 * Партнёрские CTA переделаны в точно такую же структуру, как similar-regions (которая работает на сайте): <ul class="similar-list"> + <li> + <a>
 
