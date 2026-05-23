@@ -32,6 +32,10 @@ License: GPL v2 or later
 
 == Changelog ==
 
+= 0.2.6 =
+* Иконки Calcite UI Icons (Esri) inline SVG вместо эмодзи/юникод-символов на всех кнопках карты
+* Сортировка таблицы: CSS-управляемая стрелка вместо textContent-хака
+
 = 0.2.5 =
 * Добавлены хлебные крошки на странице региона: RankMath если включён, иначе — ручный fallback с микроразметкой BreadcrumbList
 

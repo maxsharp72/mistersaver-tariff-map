@@ -916,6 +916,14 @@ function renderTable() {
 }
 
 function initTableSorting() {
+  // Добавим SVG-стрелку во все сортируемые заголовки (если её ещё нет)
+  const sortIcoSVG = '<svg class="th-sort-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M9 2v10.295l1.62-1.62.706.707-2.808 2.81-2.81-2.81.707-.707L8 12.26V2z"/></svg>';
+  document.querySelectorAll('.regions-table th[data-sort]').forEach(th => {
+    if (th.dataset.sort === 'rank') return;
+    if (!th.querySelector('.th-sort-ico')) {
+      th.insertAdjacentHTML('beforeend', ' ' + sortIcoSVG);
+    }
+  });
   document.querySelectorAll('.regions-table th[data-sort]').forEach(th => {
     th.onclick = () => {
       const key = th.dataset.sort;
@@ -926,16 +934,18 @@ function initTableSorting() {
         state.sortKey = key;
         state.sortDir = 'desc';
       }
+      // Очистим предыдущие состояния
       document.querySelectorAll('.regions-table th').forEach(t => {
-        t.classList.remove('sorted');
-        t.textContent = t.textContent.replace(/[↑↓]/g, '').trim();
+        t.classList.remove('sorted', 'sort-asc', 'sort-desc');
       });
       th.classList.add('sorted');
-      const arrow = state.sortDir === 'asc' ? ' ↑' : ' ↓';
-      th.textContent = th.textContent + arrow;
+      th.classList.add(state.sortDir === 'asc' ? 'sort-asc' : 'sort-desc');
       renderTable();
     };
   });
+  // Начальное состояние — по первому клику проставим класс для столбца «Платёж»
+  const initialTh = document.querySelector('.regions-table th[data-sort="bill"]');
+  if (initialTh) initialTh.classList.add('sort-desc');
 }
 
 /* =========================================================
