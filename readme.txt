@@ -32,6 +32,9 @@ License: GPL v2 or later
 
 == Changelog ==
 
+= 0.2.14 =
+* Партнёрские CTA переделаны в простые текстовые ссылки-кнопки (display:inline-block) — работают в любой теме без конфликтов CSS
+
 = 0.2.13 =
 * Критическое исправление: !important на всех inline-стилях партнёрских карточек — тема Astra перебивала display:flex на .entry-content a
 
