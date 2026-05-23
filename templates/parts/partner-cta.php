@@ -15,6 +15,28 @@ $headline = $region_name_local
     ? 'Платить за ЖКУ в ' . esc_html( $region_name_local ) . ' выгоднее'
     : 'Платить за ЖКУ выгоднее';
 ?>
+<style>
+/* Аварийные инлайн-стили партнёрского CTA — на случай, если map.css не подгружается на странице региона */
+.ms-partner-cta{margin:32px 0;padding:24px;background:linear-gradient(135deg,#F0F9FF 0%,#FFF 50%,#FEF3C7 100%);border-radius:16px;border:1px solid rgba(226,232,240,.8)}
+.ms-partner-cta__head{margin-bottom:20px}
+.ms-partner-cta__title{font-size:clamp(20px,2.5vw,24px);font-weight:700;margin:0 0 8px;color:#0F172A;letter-spacing:-.01em}
+.ms-partner-cta__sub{margin:0;color:#64748B;font-size:14px;line-height:1.5;max-width:640px}
+.ms-partner-cta__grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.ms-partner-card{display:flex !important;align-items:center;gap:14px;padding:16px 18px;background:#fff;border:1px solid rgba(226,232,240,.9);border-radius:12px;text-decoration:none !important;color:#0F172A !important;transition:transform .15s,box-shadow .15s,border-color .15s;box-shadow:0 1px 2px rgba(15,23,42,.04);min-height:76px;box-sizing:border-box}
+.ms-partner-card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(4,107,210,.12);border-color:#046BD2;text-decoration:none !important}
+.ms-partner-card:hover .ms-partner-card__title,
+.ms-partner-card:hover .ms-partner-card__sub{color:inherit}
+.ms-partner-card__icon{flex-shrink:0;width:44px;height:44px;border-radius:10px;background:rgba(4,107,210,.08);color:#046BD2;display:flex;align-items:center;justify-content:center}
+.ms-partner-card__icon svg{width:22px;height:22px}
+.ms-partner-card__body{flex:1 1 auto;min-width:0}
+.ms-partner-card__title{font-weight:700;font-size:15px;line-height:1.3;color:#0F172A;margin-bottom:4px}
+.ms-partner-card__sub{font-size:13px;color:#64748B;line-height:1.4}
+.ms-partner-card__arrow{flex-shrink:0;width:24px;height:24px;color:#94A3B8;transition:transform .15s,color .15s}
+.ms-partner-card__arrow svg{width:100%;height:100%}
+.ms-partner-card:hover .ms-partner-card__arrow{color:#046BD2;transform:translateX(3px)}
+.ms-partner-cta__erid{margin-top:14px;text-align:center;font-size:11px;color:#94A3B8;letter-spacing:.02em}
+@media (max-width:768px){.ms-partner-cta{padding:18px;margin:20px 0}.ms-partner-cta__grid{grid-template-columns:1fr;gap:10px}.ms-partner-card{padding:14px}}
+</style>
 <section class="ms-partner-cta" aria-label="Партнёрские предложения для оплаты ЖКУ">
     <div class="ms-partner-cta__head">
         <h2 class="ms-partner-cta__title"><?php echo $headline; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
