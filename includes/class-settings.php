@@ -46,6 +46,9 @@ class MS_Tariff_Map_Settings {
         add_settings_section( 'ms_partner_section', 'Партнёрские ссылки', null, self::PAGE_SLUG );
         self::field( 'partner_payment_url',  'URL партнёра «Оплата ЖКУ»', '', 'ms_partner_section' );
         self::field( 'partner_cashback_url', 'URL партнёра «Кэшбэк»',     '', 'ms_partner_section' );
+
+        add_settings_section( 'ms_analytics_section', 'Аналитика', null, self::PAGE_SLUG );
+        self::field( 'yandex_metrika_id', 'ID счётчика Яндекс.Метрики', 'При указании — плагин будет автоматически отправлять цели <code>partner_click</code>, <code>partner_click_cashback</code>, <code>partner_click_tbank</code> при кликах по партнёрским кнопкам. Например: 17963905. <a href="https://github.com/maxsharp72/mistersaver-tariff-map/blob/main/docs/yandex-metrika-cpa-setup.md" target="_blank">Подробная инструкция</a>', 'ms_analytics_section' );
     }
 
     private static function field( string $key, string $label, string $desc, string $section ): void {

@@ -3,7 +3,7 @@
  * Plugin Name:       MisterSaver Tariff Map
  * Plugin URI:        https://github.com/maxsharp72/mistersaver-tariff-map
  * Description:       Интерактивная карта тарифов ЖКУ по 89 регионам России. CPT region_tariff + шорткод [ms_tariff_map] + Яндекс Tiles API + OpenLayers.
- * Version:           0.2.17
+ * Version:           0.2.18
  * Requires at least: 6.0
  * Requires PHP:      8.1
  * Author:            MisterSaver
@@ -18,7 +18,7 @@
 defined( 'ABSPATH' ) || exit;
 
 // Версия плагина.
-define( 'MS_TARIFF_MAP_VERSION', '0.2.17' );
+define( 'MS_TARIFF_MAP_VERSION', '0.2.18' );
 define( 'MS_TARIFF_MAP_FILE', __FILE__ );
 define( 'MS_TARIFF_MAP_DIR', plugin_dir_path( __FILE__ ) );
 define( 'MS_TARIFF_MAP_URL', plugin_dir_url( __FILE__ ) );
@@ -63,6 +63,42 @@ final class MS_Tariff_Map {
             self::$instance->init();
         }
         return self::$instance;
+    }
+
+    /**
+     * Выводит JS-трекер Яндекс.Метрики для партнёрских кнопок.
+     * Работает только на страницах региона/архива, и только если в настройках указан ID счётчика.
+     */
+    public static function render_metrika_tracker(): void {
+        if ( ! is_singular( MS_Tariff_Map_CPT::POST_TYPE ) && ! is_post_type_archive( MS_Tariff_Map_CPT::POST_TYPE ) ) {
+            return;
+        }
+        $opts       = get_option( 'ms_tariff_map_options', [] );
+        $counter_id = isset( $opts['yandex_metrika_id'] ) ? trim( (string) $opts['yandex_metrika_id'] ) : '';
+        if ( ! preg_match( '/^\d+$/', $counter_id ) ) {
+            return;
+        }
+        $counter_id = (int) $counter_id;
+        ?>
+<script id="ms-tariff-map-tracker">
+(function() {
+  var COUNTER_ID = <?php echo esc_js( (string) $counter_id ); ?>;
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a[data-offer]');
+    if (!link || typeof ym !== 'function') return;
+    var offer  = link.getAttribute('data-offer');
+    var region = link.getAttribute('data-region');
+    ym(COUNTER_ID, 'reachGoal', 'partner_click');
+    if (offer === 'cashback-card') {
+      ym(COUNTER_ID, 'reachGoal', 'partner_click_cashback');
+    } else if (offer === 'tbank-zhku') {
+      ym(COUNTER_ID, 'reachGoal', 'partner_click_tbank');
+    }
+    ym(COUNTER_ID, 'params', { partner_offer: offer, partner_region: region || 'archive' });
+  }, { capture: true });
+})();
+</script>
+        <?php
     }
 
     private function init(): void {
