@@ -17,7 +17,7 @@ $headline = $region_name_local
     : 'Платить за ЖКУ выгоднее';
 
 // Единый стиль синей кнопки. Высота и ширина фиксированы — обе кнопки одинаковые.
-$btn_style = 'display:inline-flex !important;align-items:center !important;justify-content:center !important;gap:10px !important;padding:16px 24px !important;background:#046BD2 !important;color:#fff !important;font-weight:700 !important;font-size:15px !important;border-radius:10px !important;text-decoration:none !important;line-height:1.3 !important;box-shadow:0 2px 8px rgba(4,107,210,.22) !important;border:none !important;min-width:240px !important;text-align:center !important;';
+$btn_style = 'display:inline-flex !important;align-items:center !important;justify-content:center !important;gap:10px !important;padding:16px 24px !important;background:#046BD2 !important;color:#fff !important;font-weight:700 !important;font-size:15px !important;border-radius:10px !important;text-decoration:none !important;line-height:1.3 !important;box-shadow:0 2px 8px rgba(4,107,210,.22) !important;border:none !important;min-width:240px !important;text-align:center !important;transition:background .2s ease,transform .2s ease,box-shadow .2s ease !important;will-change:transform !important;';
 
 $ico_style = 'width:20px;height:20px;flex-shrink:0;color:#fff;';
 $sub_style = 'display:block;font-size:13px;color:#64748B;margin:8px 0 0 0;line-height:1.4;text-align:center;';
@@ -26,6 +26,44 @@ $erid_style = 'display:block;margin-top:4px;font-size:11px;color:#94A3B8;letter-
 $cashback_url = MS_Tariff_Map_Redirector::local_url( 'cashback', $region_slug_local );
 $tbank_url    = MS_Tariff_Map_Redirector::local_url( 'tbank',    $region_slug_local );
 ?>
+<style>
+/* Ховеры для партнёрских кнопок (inline стиль не поддерживает :hover) */
+.ms-region-page__partners a[data-offer] {
+  position: relative;
+  overflow: hidden;
+}
+.ms-region-page__partners a[data-offer]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,.18) 0%, rgba(255,255,255,0) 50%);
+  opacity: 0;
+  transition: opacity .2s ease;
+  pointer-events: none;
+}
+.ms-region-page__partners a[data-offer]:hover {
+  background: #0359B3 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(4,107,210,.32) !important;
+}
+.ms-region-page__partners a[data-offer]:hover::before {
+  opacity: 1;
+}
+.ms-region-page__partners a[data-offer]:hover svg {
+  transform: scale(1.12) rotate(-3deg);
+}
+.ms-region-page__partners a[data-offer] svg {
+  transition: transform .2s ease;
+}
+.ms-region-page__partners a[data-offer]:active {
+  transform: translateY(0) !important;
+  box-shadow: 0 2px 6px rgba(4,107,210,.20) !important;
+}
+.ms-region-page__partners a[data-offer]:focus-visible {
+  outline: 3px solid rgba(4,107,210,.35) !important;
+  outline-offset: 3px;
+}
+</style>
 <section class="ms-region-page__partners" style="margin:32px 0;padding:28px 24px;background:linear-gradient(135deg,#F8FAFC 0%,#FFF 50%,#F1F5F9 100%);border-radius:16px;border:1px solid rgba(226,232,240,.8);">
 
     <h2 style="font-size:22px;font-weight:700;margin:0 0 8px 0;color:#0F172A;letter-spacing:-.01em;line-height:1.25;text-align:center;"><?php echo $headline; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>

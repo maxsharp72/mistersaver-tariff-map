@@ -3,7 +3,7 @@
  * Plugin Name:       MisterSaver Tariff Map
  * Plugin URI:        https://github.com/maxsharp72/mistersaver-tariff-map
  * Description:       Интерактивная карта тарифов ЖКУ по 89 регионам России. CPT region_tariff + шорткод [ms_tariff_map] + Яндекс Tiles API + OpenLayers.
- * Version:           0.2.20
+ * Version:           0.2.21
  * Requires at least: 6.0
  * Requires PHP:      8.1
  * Author:            MisterSaver
@@ -18,7 +18,7 @@
 defined( 'ABSPATH' ) || exit;
 
 // Версия плагина.
-define( 'MS_TARIFF_MAP_VERSION', '0.2.20' );
+define( 'MS_TARIFF_MAP_VERSION', '0.2.21' );
 define( 'MS_TARIFF_MAP_FILE', __FILE__ );
 define( 'MS_TARIFF_MAP_DIR', plugin_dir_path( __FILE__ ) );
 define( 'MS_TARIFF_MAP_URL', plugin_dir_url( __FILE__ ) );
@@ -103,6 +103,82 @@ final class MS_Tariff_Map {
         <?php
     }
 
+    /**
+     * На странице /contacts/ — читает ?subject= и ?ref= из URL,
+     * вставляет в поле «Тема» любой формы (Gutena/CF7/WPForms/др.).
+     */
+    public static function render_contacts_prefill(): void {
+        $path = isset( $_SERVER['REQUEST_URI'] ) ? wp_parse_url( $_SERVER['REQUEST_URI'], PHP_URL_PATH ) : '';
+        if ( ! $path || strpos( (string) $path, '/contacts' ) === false ) {
+            return;
+        }
+        ?>
+<script id="ms-contacts-prefill">
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var subject = params.get('subject');
+  var ref = params.get('ref');
+  if (!subject) return;
+
+  function fillSubjectField() {
+    var selectors = [
+      'input[name="subject"]', 'input[name="Subject"]',
+      'input[name="your-subject"]',
+      'input[name*="theme" i]', 'input[name*="tema" i]',
+      'input[placeholder*="Тема" i]',
+      'input#subject', 'input#tema',
+      'select[name="subject"]', 'select[name="Subject"]'
+    ];
+    var field = null;
+    for (var i = 0; i < selectors.length; i++) {
+      field = document.querySelector(selectors[i]);
+      if (field) break;
+    }
+    if (!field) return false;
+
+    if (field.tagName === 'SELECT') {
+      var opt = document.createElement('option');
+      opt.value = subject;
+      opt.textContent = subject;
+      opt.selected = true;
+      field.appendChild(opt);
+    } else {
+      field.value = subject;
+      field.dispatchEvent(new Event('input', { bubbles: true }));
+      field.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+
+    if (ref) {
+      var msgSelectors = [
+        'textarea[name="message"]', 'textarea[name="your-message"]',
+        'textarea[name*="message" i]', 'textarea[name*="сообщение" i]',
+        'textarea#message'
+      ];
+      var msgField = null;
+      for (var j = 0; j < msgSelectors.length; j++) {
+        msgField = document.querySelector(msgSelectors[j]);
+        if (msgField) break;
+      }
+      if (msgField && !msgField.value) {
+        msgField.value = 'Страница с ошибкой: ' + window.location.origin + ref + '\n\nОпишите ошибку:\n';
+        msgField.dispatchEvent(new Event('input', { bubbles: true }));
+      }
+    }
+    return true;
+  }
+
+  if (!fillSubjectField()) {
+    var tries = 0;
+    var iv = setInterval(function() {
+      tries++;
+      if (fillSubjectField() || tries > 10) clearInterval(iv);
+    }, 300);
+  }
+})();
+</script>
+        <?php
+    }
+
     private function init(): void {
         // Регистрация CPT и таксономии — на init.
         add_action( 'init', [ MS_Tariff_Map_CPT::class, 'register' ], 5 );
@@ -127,6 +203,9 @@ final class MS_Tariff_Map {
 
         // Партнёрский редиректор (/go/{slug}/) — обход AdBlock.
         MS_Tariff_Map_Redirector::register();
+
+        // Автозаполнение формы на /contacts/ из GET-параметров.
+        add_action( 'wp_footer', [ 'MS_Tariff_Map', 'render_contacts_prefill' ], 99 );
 
         // Schema.org JSON-LD.
         add_action( 'wp_head', [ MS_Tariff_Map_Schema::class, 'render' ], 5 );

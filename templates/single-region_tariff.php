@@ -96,6 +96,9 @@ while ( have_posts() ) :
     <?php // [Блок 8] Похожие регионы ?>
     <?php include MS_TARIFF_MAP_DIR . 'templates/parts/similar-regions.php'; ?>
 
+    <?php // [Блок 9] Нашли ошибку? ?>
+    <?php include MS_TARIFF_MAP_DIR . 'templates/parts/report-error.php'; ?>
+
 </main>
 
 <?php
