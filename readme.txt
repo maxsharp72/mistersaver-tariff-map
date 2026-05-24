@@ -32,6 +32,9 @@ License: GPL v2 or later
 
 == Changelog ==
 
+= 0.2.20 =
+* Исправлено: Метрика-трекер не выводился — читали опции из неверного ключа (`ms_tariff_map_options` вместо `ms_tariff_map_settings`)
+
 = 0.2.19 =
 * Двойная подстраховка вывода Метрика-трекера: в partner-cta.php рядом с кнопками и в wp_footer (на случай если тема не вызывает wp_footer правильно). Защита от двойного трекинга через флаг window.__msTariffTrackerInit
 

@@ -65,10 +65,8 @@ $tbank_url    = MS_Tariff_Map_Redirector::local_url( 'tbank',    $region_slug_lo
 
 <?php
 // Трекер Яндекс.Метрики — выводим рядом с кнопками, чтобы не зависеть от wp_footer().
-$_ms_opts = get_option( 'ms_tariff_map_options', [] );
-echo '<!-- MS-DEBUG-CTA: opts_type=' . esc_html( gettype( $_ms_opts ) ) . ' keys=' . esc_html( is_array( $_ms_opts ) ? implode( ',', array_keys( $_ms_opts ) ) : 'NA' ) . ' -->';
+$_ms_opts = get_option( 'ms_tariff_map_settings', [] );
 $_ms_ym_id = isset( $_ms_opts['yandex_metrika_id'] ) ? trim( (string) $_ms_opts['yandex_metrika_id'] ) : '';
-echo '<!-- MS-DEBUG-CTA: ym_id_raw=[' . esc_html( $_ms_ym_id ) . '] len=' . strlen( $_ms_ym_id ) . ' match=' . ( preg_match( '/^\d+$/', $_ms_ym_id ) ? 'YES' : 'NO' ) . ' -->';
 if ( preg_match( '/^\d+$/', $_ms_ym_id ) ) :
     $_ms_ym_id = (int) $_ms_ym_id;
 ?>
