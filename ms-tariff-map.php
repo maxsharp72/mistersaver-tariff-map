@@ -3,7 +3,7 @@
  * Plugin Name:       MisterSaver Tariff Map
  * Plugin URI:        https://github.com/maxsharp72/mistersaver-tariff-map
  * Description:       Интерактивная карта тарифов ЖКУ по 89 регионам России. CPT region_tariff + шорткод [ms_tariff_map] + Яндекс Tiles API + OpenLayers.
- * Version:           0.2.21
+ * Version:           0.2.22
  * Requires at least: 6.0
  * Requires PHP:      8.1
  * Author:            MisterSaver
@@ -18,7 +18,7 @@
 defined( 'ABSPATH' ) || exit;
 
 // Версия плагина.
-define( 'MS_TARIFF_MAP_VERSION', '0.2.21' );
+define( 'MS_TARIFF_MAP_VERSION', '0.2.22' );
 define( 'MS_TARIFF_MAP_FILE', __FILE__ );
 define( 'MS_TARIFF_MAP_DIR', plugin_dir_path( __FILE__ ) );
 define( 'MS_TARIFF_MAP_URL', plugin_dir_url( __FILE__ ) );
@@ -148,22 +148,8 @@ final class MS_Tariff_Map {
       field.dispatchEvent(new Event('change', { bubbles: true }));
     }
 
-    if (ref) {
-      var msgSelectors = [
-        'textarea[name="message"]', 'textarea[name="your-message"]',
-        'textarea[name*="message" i]', 'textarea[name*="сообщение" i]',
-        'textarea#message'
-      ];
-      var msgField = null;
-      for (var j = 0; j < msgSelectors.length; j++) {
-        msgField = document.querySelector(msgSelectors[j]);
-        if (msgField) break;
-      }
-      if (msgField && !msgField.value) {
-        msgField.value = 'Страница с ошибкой: ' + window.location.origin + ref + '\n\nОпишите ошибку:\n';
-        msgField.dispatchEvent(new Event('input', { bubbles: true }));
-      }
-    }
+    // Поле «Сообщение» не заполняем — пусть пользователь опишет сам. Тема уже подскажет контекст.
+    // Параметр ref остаётся в URL — его видно в referer'е, при желании можно логировать на сервере.
     return true;
   }
 
@@ -176,6 +162,35 @@ final class MS_Tariff_Map {
   }
 })();
 </script>
+        <?php
+    }
+
+    /**
+     * Глобальный CSS: переносит reCAPTCHA-бейдж в левый нижний угол и уменьшает обратную прозрачность.
+     * Бейдж остаётся видимым (требование Google), просто не перекрывает кнопку «вверх».
+     */
+    public static function render_recaptcha_relocator(): void {
+        ?>
+<style id="ms-recaptcha-relocator">
+.grecaptcha-badge {
+  left: 4px !important;
+  right: auto !important;
+  bottom: 14px !important;
+  box-shadow: 0 0 5px rgba(0,0,0,.15) !important;
+  transition: opacity .2s ease, transform .2s ease !important;
+  opacity: .7;
+  z-index: 998 !important;
+}
+.grecaptcha-badge:hover {
+  opacity: 1;
+}
+@media (max-width: 768px) {
+  .grecaptcha-badge {
+    transform: scale(.85);
+    transform-origin: bottom left;
+  }
+}
+</style>
         <?php
     }
 
@@ -206,6 +221,9 @@ final class MS_Tariff_Map {
 
         // Автозаполнение формы на /contacts/ из GET-параметров.
         add_action( 'wp_footer', [ 'MS_Tariff_Map', 'render_contacts_prefill' ], 99 );
+
+        // Перенос reCAPTCHA-бейджа в левый нижний угол глобально (не только на наших страницах).
+        add_action( 'wp_head', [ 'MS_Tariff_Map', 'render_recaptcha_relocator' ], 100 );
 
         // Schema.org JSON-LD.
         add_action( 'wp_head', [ MS_Tariff_Map_Schema::class, 'render' ], 5 );
