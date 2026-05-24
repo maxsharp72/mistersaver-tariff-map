@@ -62,3 +62,32 @@ $tbank_url    = MS_Tariff_Map_Redirector::local_url( 'tbank',    $region_slug_lo
 
     </div>
 </section>
+
+<?php
+// Трекер Яндекс.Метрики — выводим рядом с кнопками, чтобы не зависеть от wp_footer().
+$_ms_opts = get_option( 'ms_tariff_map_options', [] );
+$_ms_ym_id = isset( $_ms_opts['yandex_metrika_id'] ) ? trim( (string) $_ms_opts['yandex_metrika_id'] ) : '';
+if ( preg_match( '/^\d+$/', $_ms_ym_id ) ) :
+    $_ms_ym_id = (int) $_ms_ym_id;
+?>
+<script id="ms-tariff-map-tracker">
+(function() {
+  if (window.__msTariffTrackerInit) return;
+  window.__msTariffTrackerInit = true;
+  var COUNTER_ID = <?php echo esc_js( (string) $_ms_ym_id ); ?>;
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a[data-offer]');
+    if (!link || typeof ym !== 'function') return;
+    var offer  = link.getAttribute('data-offer');
+    var region = link.getAttribute('data-region');
+    ym(COUNTER_ID, 'reachGoal', 'partner_click');
+    if (offer === 'cashback-card') {
+      ym(COUNTER_ID, 'reachGoal', 'partner_click_cashback');
+    } else if (offer === 'tbank-zhku') {
+      ym(COUNTER_ID, 'reachGoal', 'partner_click_tbank');
+    }
+    ym(COUNTER_ID, 'params', { partner_offer: offer, partner_region: region || 'archive' });
+  }, { capture: true });
+})();
+</script>
+<?php endif; ?>

@@ -3,7 +3,7 @@
  * Plugin Name:       MisterSaver Tariff Map
  * Plugin URI:        https://github.com/maxsharp72/mistersaver-tariff-map
  * Description:       Интерактивная карта тарифов ЖКУ по 89 регионам России. CPT region_tariff + шорткод [ms_tariff_map] + Яндекс Tiles API + OpenLayers.
- * Version:           0.2.18
+ * Version:           0.2.19
  * Requires at least: 6.0
  * Requires PHP:      8.1
  * Author:            MisterSaver
@@ -18,7 +18,7 @@
 defined( 'ABSPATH' ) || exit;
 
 // Версия плагина.
-define( 'MS_TARIFF_MAP_VERSION', '0.2.18' );
+define( 'MS_TARIFF_MAP_VERSION', '0.2.19' );
 define( 'MS_TARIFF_MAP_FILE', __FILE__ );
 define( 'MS_TARIFF_MAP_DIR', plugin_dir_path( __FILE__ ) );
 define( 'MS_TARIFF_MAP_URL', plugin_dir_url( __FILE__ ) );
@@ -80,8 +80,10 @@ final class MS_Tariff_Map {
         }
         $counter_id = (int) $counter_id;
         ?>
-<script id="ms-tariff-map-tracker">
+<script id="ms-tariff-map-tracker-footer">
 (function() {
+  if (window.__msTariffTrackerInit) return;
+  window.__msTariffTrackerInit = true;
   var COUNTER_ID = <?php echo esc_js( (string) $counter_id ); ?>;
   document.addEventListener('click', function(e) {
     var link = e.target.closest('a[data-offer]');
