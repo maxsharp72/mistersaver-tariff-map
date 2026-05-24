@@ -3,7 +3,7 @@
  * Plugin Name:       MisterSaver Tariff Map
  * Plugin URI:        https://github.com/maxsharp72/mistersaver-tariff-map
  * Description:       Интерактивная карта тарифов ЖКУ по 89 регионам России. CPT region_tariff + шорткод [ms_tariff_map] + Яндекс Tiles API + OpenLayers.
- * Version:           0.2.22
+ * Version:           0.2.23
  * Requires at least: 6.0
  * Requires PHP:      8.1
  * Author:            MisterSaver
@@ -18,7 +18,7 @@
 defined( 'ABSPATH' ) || exit;
 
 // Версия плагина.
-define( 'MS_TARIFF_MAP_VERSION', '0.2.22' );
+define( 'MS_TARIFF_MAP_VERSION', '0.2.23' );
 define( 'MS_TARIFF_MAP_FILE', __FILE__ );
 define( 'MS_TARIFF_MAP_DIR', plugin_dir_path( __FILE__ ) );
 define( 'MS_TARIFF_MAP_URL', plugin_dir_url( __FILE__ ) );
@@ -172,16 +172,21 @@ final class MS_Tariff_Map {
     public static function render_recaptcha_relocator(): void {
         ?>
 <style id="ms-recaptcha-relocator">
+/* reCAPTCHA-бейдж — в левом нижнем углу, свёрнут до значка.
+   При наведении — разворачивается на полную ширину (сохраняется видимость согласно TOS Google). */
 .grecaptcha-badge {
   left: 4px !important;
   right: auto !important;
   bottom: 14px !important;
   box-shadow: 0 0 5px rgba(0,0,0,.15) !important;
-  transition: opacity .2s ease, transform .2s ease !important;
-  opacity: .7;
+  transition: width .25s ease, opacity .2s ease, transform .2s ease !important;
+  opacity: .85;
   z-index: 998 !important;
+  width: 70px !important;
+  overflow: hidden !important;
 }
 .grecaptcha-badge:hover {
+  width: 256px !important;
   opacity: 1;
 }
 @media (max-width: 768px) {
