@@ -73,50 +73,49 @@ LeadGid фиксирует переход с sub_id=chukotskij-ao
 ```html
 <script>
 (function() {
+  var COUNTER_ID = 17963905; // ← счётчик Метрики MisterSaver
+
   document.addEventListener('click', function(e) {
     var link = e.target.closest('a[data-offer]');
     if (!link) return;
-
-    var offer = link.getAttribute('data-offer');     // cashback-card | tbank-zhku
-    var region = link.getAttribute('data-region');   // chukotskij-ao | ''
-
     if (typeof ym !== 'function') return;
-    var counterId = window.__YM_COUNTER_ID__; // подставь свой номер счётчика ниже
+
+    var offer  = link.getAttribute('data-offer');    // cashback-card | tbank-zhku
+    var region = link.getAttribute('data-region');   // moskva | chukotskij-ao | ''
 
     // Общая цель
-    ym(counterId, 'reachGoal', 'partner_click', {
-      offer: offer,
-      region: region || 'archive'
-    });
+    ym(COUNTER_ID, 'reachGoal', 'partner_click');
 
     // Конкретная цель по предложению
     if (offer === 'cashback-card') {
-      ym(counterId, 'reachGoal', 'partner_click_cashback', { region: region || 'archive' });
+      ym(COUNTER_ID, 'reachGoal', 'partner_click_cashback');
     } else if (offer === 'tbank-zhku') {
-      ym(counterId, 'reachGoal', 'partner_click_tbank', { region: region || 'archive' });
+      ym(COUNTER_ID, 'reachGoal', 'partner_click_tbank');
     }
 
-    // Опционально: e-commerce event для воронки
-    ym(counterId, 'params', {
-      partner_offer: offer,
+    // Параметры визита — для среза по региону в отчёте «Параметры визитов»
+    ym(COUNTER_ID, 'params', {
+      partner_offer:  offer,
       partner_region: region || 'archive'
     });
   }, { capture: true });
-
-  window.__YM_COUNTER_ID__ = 12345678; // ← поставь свой номер счётчика Метрики
 })();
 </script>
 ```
 
-> **Важно** в строке `window.__YM_COUNTER_ID__ = 12345678;` подставь свой номер счётчика.
+> **Счётчик `17963905` уже подставлен.** При переезде на другой сайт поменяй в первой строке (`var COUNTER_ID`).
 
 ### Шаг 1.5 — Проверка
 
 1. Открой страницу любого региона
 2. F12 → Console
-3. Кликни на кнопку «Твой кешбэк»
-4. В консоли должна появиться запись `ym(12345678, 'reachGoal', 'partner_click', {...})`
-5. Через 5-15 минут в Метрике → **Отчёты → Стандартные → Конверсии → Цели** появится цель `Партнёрский клик` с одним достижением
+3. Кликни на кнопку «Твой кешбэк» НАЖАТЫМ СРЕДНЕЙ КНОПКОЙ МЫШИ (или Ctrl+левый клик) — чтобы открылось в новой вкладке и текущая консоль не исчезла
+4. В Наладках Метрики (нажать в трее счётчика «Flag» или открыть [Метрика Devtools](https://yandex.ru/support/metrica/quick-start.html#install-counter)) или просто в Console введи вручную:
+   ```js
+   ym(17963905, 'reachGoal', 'test_goal')
+   ```
+   — в Network-вкладке должен появиться запрос на `mc.yandex.ru/watch/...` (если AdBlock не блокирует)
+5. Через 5-15 минут в Метрике → **Отчёты → Стандартные → Конверсии → Цели** появится цель «Партнёрский клик» с одним достижением
 
 ---
 
