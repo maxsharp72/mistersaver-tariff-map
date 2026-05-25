@@ -32,6 +32,11 @@ License: GPL v2 or later
 
 == Changelog ==
 
+= 0.2.24 =
+* **Исправлен 404 на /go/cashback/ и /go/tbank/** после обновления плагина
+* Добавлен авто-flush rewrite-правил при смене версии (option `ms_tariff_map_flushed_version`)
+* Теперь обновления через ZIP не ломают партнёрские редиректы
+
 = 0.2.23 =
 * reCAPTCHA-бейдж свёрнут до значка (width 70px, overflow hidden) — больше не занимает полэкрана внизу
 * При наведении разворачивается до полной ширины 256px с плавным transition (.25s)

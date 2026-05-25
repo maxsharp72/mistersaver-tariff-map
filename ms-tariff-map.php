@@ -3,7 +3,7 @@
  * Plugin Name:       MisterSaver Tariff Map
  * Plugin URI:        https://github.com/maxsharp72/mistersaver-tariff-map
  * Description:       Интерактивная карта тарифов ЖКУ по 89 регионам России. CPT region_tariff + шорткод [ms_tariff_map] + Яндекс Tiles API + OpenLayers.
- * Version:           0.2.23
+ * Version:           0.2.24
  * Requires at least: 6.0
  * Requires PHP:      8.1
  * Author:            MisterSaver
@@ -18,7 +18,7 @@
 defined( 'ABSPATH' ) || exit;
 
 // Версия плагина.
-define( 'MS_TARIFF_MAP_VERSION', '0.2.23' );
+define( 'MS_TARIFF_MAP_VERSION', '0.2.24' );
 define( 'MS_TARIFF_MAP_FILE', __FILE__ );
 define( 'MS_TARIFF_MAP_DIR', plugin_dir_path( __FILE__ ) );
 define( 'MS_TARIFF_MAP_URL', plugin_dir_url( __FILE__ ) );
@@ -169,6 +169,18 @@ final class MS_Tariff_Map {
      * Глобальный CSS: переносит reCAPTCHA-бейдж в левый нижний угол и уменьшает обратную прозрачность.
      * Бейдж остаётся видимым (требование Google), просто не перекрывает кнопку «вверх».
      */
+    /**
+     * Авто-flush правил перезаписи URL при смене версии плагина.
+     * Решает проблему 404 на /go/{slug}/ после обновления через ZIP.
+     */
+    public static function maybe_flush_rewrite_rules(): void {
+        $stored = get_option( 'ms_tariff_map_flushed_version' );
+        if ( $stored !== MS_TARIFF_MAP_VERSION ) {
+            flush_rewrite_rules( false );
+            update_option( 'ms_tariff_map_flushed_version', MS_TARIFF_MAP_VERSION, false );
+        }
+    }
+
     public static function render_recaptcha_relocator(): void {
         ?>
 <style id="ms-recaptcha-relocator">
@@ -223,6 +235,10 @@ final class MS_Tariff_Map {
 
         // Партнёрский редиректор (/go/{slug}/) — обход AdBlock.
         MS_Tariff_Map_Redirector::register();
+
+        // Авто-flush правил перезаписи после обновления плагина.
+        // Срабатывает один раз при смене версии — гарантирует, что /go/{slug}/ работает.
+        add_action( 'init', [ 'MS_Tariff_Map', 'maybe_flush_rewrite_rules' ], 99 );
 
         // Автозаполнение формы на /contacts/ из GET-параметров.
         add_action( 'wp_footer', [ 'MS_Tariff_Map', 'render_contacts_prefill' ], 99 );
