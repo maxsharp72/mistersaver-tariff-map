@@ -75,8 +75,8 @@
     "short_name": "Ингушетия",
     "district": "СКФО",
     "center_city": "Магас",
-    "bill": 3114,
-    "electricity": 3.45,
+    "bill": 3544,
+    "electricity": 6.14,
     "electricity_night": 2.2,
     "water": 20.5,
     "hot_water": 88.0,
@@ -89,7 +89,9 @@
     "regulator": "Министерство тарифного регулирования Республика Ингушетия",
     "tariff_date": "2025-07-01",
     "tier": 1,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 11.9,
+    "bill_estimated": true
   },
   {
     "id": 81,
@@ -98,8 +100,8 @@
     "short_name": "Чечня",
     "district": "СКФО",
     "center_city": "Грозный",
-    "bill": 3265,
-    "electricity": 3.5,
+    "bill": 3626,
+    "electricity": 4.62,
     "electricity_night": 2.25,
     "water": 22.0,
     "hot_water": 95.0,
@@ -112,7 +114,9 @@
     "regulator": "Министерство тарифного регулирования Чеченская Республика",
     "tariff_date": "2025-07-01",
     "tier": 1,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 9.2,
+    "bill_estimated": true
   },
   {
     "id": 15,
@@ -121,8 +125,8 @@
     "short_name": "Дагестан",
     "district": "СКФО",
     "center_city": "Махачкала",
-    "bill": 3272,
-    "electricity": 3.6,
+    "bill": 3983,
+    "electricity": 4.45,
     "electricity_night": 2.3,
     "water": 22.0,
     "hot_water": 95.0,
@@ -135,7 +139,9 @@
     "regulator": "Министерство тарифного регулирования Республика Дагестан",
     "tariff_date": "2025-07-01",
     "tier": 1,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 19.7,
+    "bill_estimated": true
   },
   {
     "id": 21,
@@ -144,8 +150,8 @@
     "short_name": "Кабардино-Балкария",
     "district": "СКФО",
     "center_city": "Нальчик",
-    "bill": 3390,
-    "electricity": 3.65,
+    "bill": 3779,
+    "electricity": 6.53,
     "electricity_night": 2.35,
     "water": 23.0,
     "hot_water": 100.0,
@@ -158,7 +164,9 @@
     "regulator": "Министерство тарифного регулирования Кабардино-Балкарская Республика",
     "tariff_date": "2025-07-01",
     "tier": 1,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 9.6,
+    "bill_estimated": true
   },
   {
     "id": 26,
@@ -167,8 +175,8 @@
     "short_name": "Карачаево-Черкесия",
     "district": "СКФО",
     "center_city": "Черкесск",
-    "bill": 3508,
-    "electricity": 3.7,
+    "bill": 4017,
+    "electricity": 6.97,
     "electricity_night": 2.4,
     "water": 24.0,
     "hot_water": 105.0,
@@ -181,7 +189,9 @@
     "regulator": "Министерство тарифного регулирования Карачаево-Черкесская Республика",
     "tariff_date": "2025-07-01",
     "tier": 1,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 12.6,
+    "bill_estimated": true
   },
   {
     "id": 20,
@@ -190,8 +200,8 @@
     "short_name": "Иркутская обл.",
     "district": "СФО",
     "center_city": "Иркутск",
-    "bill": 3550,
-    "electricity": 1.98,
+    "bill": 4080,
+    "electricity": 2.1,
     "electricity_night": 1.28,
     "water": 25.0,
     "hot_water": 115.0,
@@ -204,7 +214,9 @@
     "regulator": "Комитет по тарифам Иркутская обл.",
     "tariff_date": "2025-07-01",
     "tier": 1,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 13.0,
+    "bill_estimated": true
   },
   {
     "id": 78,
@@ -213,8 +225,8 @@
     "short_name": "Хакасия",
     "district": "СФО",
     "center_city": "Абакан",
-    "bill": 3651,
-    "electricity": 2.25,
+    "bill": 4010,
+    "electricity": 3.67,
     "electricity_night": 1.5,
     "water": 28.5,
     "hot_water": 132.0,
@@ -227,7 +239,9 @@
     "regulator": "Министерство тарифного регулирования Республика Хакасия",
     "tariff_date": "2025-07-01",
     "tier": 1,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 8.0,
+    "bill_estimated": true
   },
   {
     "id": 2,
@@ -236,8 +250,8 @@
     "short_name": "Алтай",
     "district": "СФО",
     "center_city": "Горно-Алтайск",
-    "bill": 3924,
-    "electricity": 4.2,
+    "bill": 4454,
+    "electricity": 8.85,
     "electricity_night": 2.8,
     "water": 27.8,
     "hot_water": 130.0,
@@ -250,7 +264,9 @@
     "regulator": "Министерство тарифного регулирования Республика Алтай",
     "tariff_date": "2025-07-01",
     "tier": 1,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 11.6,
+    "bill_estimated": true
   },
   {
     "id": 23,
@@ -259,8 +275,8 @@
     "short_name": "Калмыкия",
     "district": "ЮФО",
     "center_city": "Элиста",
-    "bill": 3929,
-    "electricity": 4.5,
+    "bill": 4387,
+    "electricity": 8.42,
     "electricity_night": 2.8,
     "water": 27.0,
     "hot_water": 118.0,
@@ -273,7 +289,9 @@
     "regulator": "Министерство тарифного регулирования Республика Калмыкия",
     "tariff_date": "2025-07-01",
     "tier": 1,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 9.8,
+    "bill_estimated": true
   },
   {
     "id": 65,
@@ -282,8 +300,8 @@
     "short_name": "Северная Осетия",
     "district": "СКФО",
     "center_city": "Владикавказ",
-    "bill": 3977,
-    "electricity": 4.2,
+    "bill": 4704,
+    "electricity": 6.97,
     "electricity_night": 2.68,
     "water": 25.0,
     "hot_water": 112.0,
@@ -296,7 +314,9 @@
     "regulator": "Министерство тарифного регулирования Республика Северная Осетия — Алания",
     "tariff_date": "2025-07-01",
     "tier": 1,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 16.3,
+    "bill_estimated": true
   },
   {
     "id": 33,
@@ -305,8 +325,8 @@
     "short_name": "Красноярский край",
     "district": "СФО",
     "center_city": "Красноярск",
-    "bill": 3983,
-    "electricity": 2.48,
+    "bill": 4658,
+    "electricity": 4.77,
     "electricity_night": 1.65,
     "water": 30.5,
     "hot_water": 145.0,
@@ -319,7 +339,9 @@
     "regulator": "РЭК Красноярский край",
     "tariff_date": "2025-07-01",
     "tier": 1,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 15.0,
+    "bill_estimated": true
   },
   {
     "id": 6,
@@ -328,8 +350,8 @@
     "short_name": "Астраханская обл.",
     "district": "ЮФО",
     "center_city": "Астрахань",
-    "bill": 4081,
-    "electricity": 4.7,
+    "bill": 4561,
+    "electricity": 8.21,
     "electricity_night": 2.9,
     "water": 28.0,
     "hot_water": 125.0,
@@ -342,7 +364,9 @@
     "regulator": "Комитет по тарифам Астраханская обл.",
     "tariff_date": "2025-07-01",
     "tier": 1,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 9.9,
+    "bill_estimated": true
   },
   {
     "id": 67,
@@ -351,8 +375,8 @@
     "short_name": "Ставропольский край",
     "district": "СКФО",
     "center_city": "Ставрополь",
-    "bill": 4185,
-    "electricity": 4.65,
+    "bill": 5192,
+    "electricity": 7.9,
     "electricity_night": 2.88,
     "water": 28.5,
     "hot_water": 130.0,
@@ -365,7 +389,9 @@
     "regulator": "РЭК Ставропольский край",
     "tariff_date": "2025-07-01",
     "tier": 1,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 22.0,
+    "bill_estimated": true
   },
   {
     "id": 91,
@@ -374,9 +400,9 @@
     "short_name": "Крым",
     "district": "ЮФО",
     "center_city": "Симферополь",
-    "bill": 4200,
-    "electricity": 6.11,
-    "electricity_night": 1.93,
+    "bill": 4780,
+    "electricity": 5.45,
+    "electricity_night": 3.84,
     "water": 47.17,
     "hot_water": 162.0,
     "wastewater": 39.75,
@@ -388,7 +414,9 @@
     "regulator": "Государственный комитет по ценам и тарифам Республики Крым",
     "tariff_date": "2025-07-01",
     "tier": 2,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 11.9,
+    "bill_estimated": true
   },
   {
     "id": 95,
@@ -421,8 +449,8 @@
     "short_name": "Новосибирская обл.",
     "district": "СФО",
     "center_city": "Новосибирск",
-    "bill": 4407,
-    "electricity": 3.55,
+    "bill": 4961,
+    "electricity": 4.64,
     "electricity_night": 2.28,
     "water": 30.5,
     "hot_water": 143.0,
@@ -435,7 +463,9 @@
     "regulator": "Комитет по тарифам Новосибирская обл.",
     "tariff_date": "2025-07-01",
     "tier": 1,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 10.7,
+    "bill_estimated": true
   },
   {
     "id": 3,
@@ -444,8 +474,8 @@
     "short_name": "Алтайский край",
     "district": "СФО",
     "center_city": "Барнаул",
-    "bill": 4471,
-    "electricity": 5.25,
+    "bill": 5002,
+    "electricity": 7.07,
     "electricity_night": 3.1,
     "water": 29.0,
     "hot_water": 135.0,
@@ -458,7 +488,9 @@
     "regulator": "РЭК Алтайский край",
     "tariff_date": "2025-07-01",
     "tier": 1,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 10.0,
+    "bill_estimated": true
   },
   {
     "id": 50,
@@ -467,8 +499,8 @@
     "short_name": "Оренбургская обл.",
     "district": "ПФО",
     "center_city": "Оренбург",
-    "bill": 4482,
-    "electricity": 4.65,
+    "bill": 5128,
+    "electricity": 5.19,
     "electricity_night": 2.9,
     "water": 30.5,
     "hot_water": 142.0,
@@ -481,7 +513,9 @@
     "regulator": "Комитет по тарифам Оренбургская обл.",
     "tariff_date": "2025-07-01",
     "tier": 1,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 12.5,
+    "bill_estimated": true
   },
   {
     "id": 49,
@@ -490,8 +524,8 @@
     "short_name": "Омская обл.",
     "district": "СФО",
     "center_city": "Омск",
-    "bill": 4523,
-    "electricity": 4.05,
+    "bill": 5198,
+    "electricity": 7.08,
     "electricity_night": 2.65,
     "water": 32.0,
     "hot_water": 150.0,
@@ -504,7 +538,9 @@
     "regulator": "Комитет по тарифам Омская обл.",
     "tariff_date": "2025-07-01",
     "tier": 1,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 13.0,
+    "bill_estimated": true
   },
   {
     "id": 4,
@@ -513,8 +549,8 @@
     "short_name": "Амурская обл.",
     "district": "ДФО",
     "center_city": "Благовещенск",
-    "bill": 4535,
-    "electricity": 4.85,
+    "bill": 5069,
+    "electricity": 6.31,
     "electricity_night": 2.95,
     "water": 30.2,
     "hot_water": 148.0,
@@ -527,7 +563,9 @@
     "regulator": "Комитет по тарифам Амурская обл.",
     "tariff_date": "2025-07-01",
     "tier": 2,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 9.9,
+    "bill_estimated": true
   },
   {
     "id": 12,
@@ -536,8 +574,8 @@
     "short_name": "Волгоградская обл.",
     "district": "ЮФО",
     "center_city": "Волгоград",
-    "bill": 4596,
-    "electricity": 5.0,
+    "bill": 5198,
+    "electricity": 7.49,
     "electricity_night": 3.05,
     "water": 31.5,
     "hot_water": 148.0,
@@ -550,7 +588,9 @@
     "regulator": "Комитет по тарифам Волгоградская обл.",
     "tariff_date": "2025-07-01",
     "tier": 2,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 11.2,
+    "bill_estimated": true
   },
   {
     "id": 73,
@@ -559,8 +599,8 @@
     "short_name": "Тыва",
     "district": "СФО",
     "center_city": "Кызыл",
-    "bill": 4604,
-    "electricity": 3.8,
+    "bill": 5165,
+    "electricity": 5.81,
     "electricity_night": 2.5,
     "water": 30.0,
     "hot_water": 140.0,
@@ -573,7 +613,9 @@
     "regulator": "Министерство тарифного регулирования Республика Тыва",
     "tariff_date": "2025-07-01",
     "tier": 2,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 10.3,
+    "bill_estimated": true
   },
   {
     "id": 60,
@@ -582,8 +624,8 @@
     "short_name": "Саратовская обл.",
     "district": "ПФО",
     "center_city": "Саратов",
-    "bill": 4624,
-    "electricity": 5.0,
+    "bill": 5225,
+    "electricity": 6.03,
     "electricity_night": 3.08,
     "water": 31.0,
     "hot_water": 145.0,
@@ -596,7 +638,9 @@
     "regulator": "Комитет по тарифам Саратовская обл.",
     "tariff_date": "2025-07-01",
     "tier": 2,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 11.1,
+    "bill_estimated": true
   },
   {
     "id": 36,
@@ -605,8 +649,8 @@
     "short_name": "Курская обл.",
     "district": "ЦФО",
     "center_city": "Курск",
-    "bill": 4633,
-    "electricity": 4.85,
+    "bill": 5249,
+    "electricity": 6.52,
     "electricity_night": 2.98,
     "water": 31.5,
     "hot_water": 148.0,
@@ -619,7 +663,9 @@
     "regulator": "Комитет по тарифам Курская обл.",
     "tariff_date": "2025-07-01",
     "tier": 2,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 11.4,
+    "bill_estimated": true
   },
   {
     "id": 68,
@@ -628,8 +674,8 @@
     "short_name": "Тамбовская обл.",
     "district": "ЦФО",
     "center_city": "Тамбов",
-    "bill": 4638,
-    "electricity": 4.88,
+    "bill": 5542,
+    "electricity": 6.8,
     "electricity_night": 3.0,
     "water": 31.5,
     "hot_water": 148.0,
@@ -642,7 +688,9 @@
     "regulator": "Комитет по тарифам Тамбовская обл.",
     "tariff_date": "2025-07-01",
     "tier": 2,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 17.5,
+    "bill_estimated": true
   },
   {
     "id": 51,
@@ -651,8 +699,8 @@
     "short_name": "Орловская обл.",
     "district": "ЦФО",
     "center_city": "Орёл",
-    "bill": 4641,
-    "electricity": 4.9,
+    "bill": 5428,
+    "electricity": 6.64,
     "electricity_night": 3.02,
     "water": 31.5,
     "hot_water": 148.0,
@@ -665,7 +713,9 @@
     "regulator": "Комитет по тарифам Орловская обл.",
     "tariff_date": "2025-07-01",
     "tier": 2,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 15.0,
+    "bill_estimated": true
   },
   {
     "id": 40,
@@ -674,8 +724,8 @@
     "short_name": "Марий Эл",
     "district": "ПФО",
     "center_city": "Йошкар-Ола",
-    "bill": 4649,
-    "electricity": 4.85,
+    "bill": 5433,
+    "electricity": 6.25,
     "electricity_night": 2.98,
     "water": 32.0,
     "hot_water": 150.0,
@@ -688,7 +738,9 @@
     "regulator": "Министерство тарифного регулирования Республика Марий Эл",
     "tariff_date": "2025-07-01",
     "tier": 2,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 14.9,
+    "bill_estimated": true
   },
   {
     "id": 14,
@@ -697,8 +749,8 @@
     "short_name": "Воронежская обл.",
     "district": "ЦФО",
     "center_city": "Воронеж",
-    "bill": 4656,
-    "electricity": 5.0,
+    "bill": 5204,
+    "electricity": 6.69,
     "electricity_night": 3.05,
     "water": 31.5,
     "hot_water": 148.0,
@@ -711,7 +763,9 @@
     "regulator": "Комитет по тарифам Воронежская обл.",
     "tariff_date": "2025-07-01",
     "tier": 2,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 9.9,
+    "bill_estimated": true
   },
   {
     "id": 8,
@@ -720,8 +774,8 @@
     "short_name": "Белгородская обл.",
     "district": "ЦФО",
     "center_city": "Белгород",
-    "bill": 4670,
-    "electricity": 4.95,
+    "bill": 5367,
+    "electricity": 6.79,
     "electricity_night": 3.05,
     "water": 32.0,
     "hot_water": 150.0,
@@ -734,7 +788,9 @@
     "regulator": "Комитет по тарифам Белгородская обл.",
     "tariff_date": "2025-07-01",
     "tier": 2,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 13.0,
+    "bill_estimated": true
   },
   {
     "id": 38,
@@ -743,8 +799,8 @@
     "short_name": "Липецкая обл.",
     "district": "ЦФО",
     "center_city": "Липецк",
-    "bill": 4721,
-    "electricity": 4.95,
+    "bill": 5416,
+    "electricity": 6.42,
     "electricity_night": 3.05,
     "water": 32.0,
     "hot_water": 150.0,
@@ -757,7 +813,9 @@
     "regulator": "Комитет по тарифам Липецкая обл.",
     "tariff_date": "2025-07-01",
     "tier": 2,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 12.8,
+    "bill_estimated": true
   },
   {
     "id": 1,
@@ -766,8 +824,8 @@
     "short_name": "Адыгея",
     "district": "ЮФО",
     "center_city": "Майкоп",
-    "bill": 4731,
-    "electricity": 5.38,
+    "bill": 5273,
+    "electricity": 8.31,
     "electricity_night": 3.2,
     "water": 30.5,
     "hot_water": 148.0,
@@ -780,7 +838,9 @@
     "regulator": "Министерство тарифного регулирования Республика Адыгея",
     "tariff_date": "2025-07-01",
     "tier": 2,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 9.6,
+    "bill_estimated": true
   },
   {
     "id": 56,
@@ -789,8 +849,8 @@
     "short_name": "Ростовская обл.",
     "district": "ЮФО",
     "center_city": "Ростов-на-Дону",
-    "bill": 4767,
-    "electricity": 5.1,
+    "bill": 5323,
+    "electricity": 6.66,
     "electricity_night": 3.12,
     "water": 32.5,
     "hot_water": 152.0,
@@ -803,7 +863,9 @@
     "regulator": "Комитет по тарифам Ростовская обл.",
     "tariff_date": "2025-07-01",
     "tier": 2,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 9.8,
+    "bill_estimated": true
   },
   {
     "id": 32,
@@ -812,8 +874,8 @@
     "short_name": "Краснодарский край",
     "district": "ЮФО",
     "center_city": "Краснодар",
-    "bill": 4774,
-    "electricity": 5.25,
+    "bill": 5520,
+    "electricity": 8.31,
     "electricity_night": 3.2,
     "water": 33.0,
     "hot_water": 155.0,
@@ -826,7 +888,9 @@
     "regulator": "РЭК Краснодарский край",
     "tariff_date": "2025-07-01",
     "tier": 2,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 13.7,
+    "bill_estimated": true
   },
   {
     "id": 9,
@@ -835,8 +899,8 @@
     "short_name": "Брянская обл.",
     "district": "ЦФО",
     "center_city": "Брянск",
-    "bill": 4803,
-    "electricity": 5.1,
+    "bill": 5427,
+    "electricity": 6.55,
     "electricity_night": 3.1,
     "water": 33.0,
     "hot_water": 155.0,
@@ -849,7 +913,9 @@
     "regulator": "Комитет по тарифам Брянская обл.",
     "tariff_date": "2025-07-01",
     "tier": 2,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 11.1,
+    "bill_estimated": true
   },
   {
     "id": 82,
@@ -858,8 +924,8 @@
     "short_name": "Чувашия",
     "district": "ПФО",
     "center_city": "Чебоксары",
-    "bill": 4808,
-    "electricity": 4.9,
+    "bill": 5413,
+    "electricity": 5.6,
     "electricity_night": 3.02,
     "water": 33.0,
     "hot_water": 155.0,
@@ -872,7 +938,9 @@
     "regulator": "Министерство тарифного регулирования Чувашская Республика",
     "tariff_date": "2025-07-01",
     "tier": 2,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 10.7,
+    "bill_estimated": true
   },
   {
     "id": 76,
@@ -881,8 +949,8 @@
     "short_name": "Ульяновская обл.",
     "district": "ПФО",
     "center_city": "Ульяновск",
-    "bill": 4816,
-    "electricity": 5.1,
+    "bill": 5383,
+    "electricity": 6.27,
     "electricity_night": 3.15,
     "water": 32.5,
     "hot_water": 152.0,
@@ -895,7 +963,9 @@
     "regulator": "Комитет по тарифам Ульяновская обл.",
     "tariff_date": "2025-07-01",
     "tier": 2,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 9.9,
+    "bill_estimated": true
   },
   {
     "id": 52,
@@ -904,8 +974,8 @@
     "short_name": "Пензенская обл.",
     "district": "ПФО",
     "center_city": "Пенза",
-    "bill": 4852,
-    "electricity": 5.1,
+    "bill": 5413,
+    "electricity": 5.86,
     "electricity_night": 3.12,
     "water": 33.0,
     "hot_water": 155.0,
@@ -918,7 +988,9 @@
     "regulator": "Комитет по тарифам Пензенская обл.",
     "tariff_date": "2025-07-01",
     "tier": 3,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 9.7,
+    "bill_estimated": true
   },
   {
     "id": 74,
@@ -927,8 +999,8 @@
     "short_name": "Тюменская обл.",
     "district": "УФО",
     "center_city": "Тюмень",
-    "bill": 4878,
-    "electricity": 5.0,
+    "bill": 5814,
+    "electricity": 4.77,
     "electricity_night": 3.1,
     "water": 34.0,
     "hot_water": 160.0,
@@ -941,7 +1013,9 @@
     "regulator": "Комитет по тарифам Тюменская обл.",
     "tariff_date": "2025-07-01",
     "tier": 3,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 17.2,
+    "bill_estimated": true
   },
   {
     "id": 28,
@@ -950,8 +1024,8 @@
     "short_name": "Кузбасс",
     "district": "СФО",
     "center_city": "Кемерово",
-    "bill": 4890,
-    "electricity": 4.2,
+    "bill": 5958,
+    "electricity": 5.97,
     "electricity_night": 2.75,
     "water": 34.0,
     "hot_water": 160.0,
@@ -964,7 +1038,9 @@
     "regulator": "Комитет по тарифам Кузбасс",
     "tariff_date": "2025-07-01",
     "tier": 3,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 19.8,
+    "bill_estimated": true
   },
   {
     "id": 71,
@@ -973,8 +1049,8 @@
     "short_name": "Томская обл.",
     "district": "СФО",
     "center_city": "Томск",
-    "bill": 4928,
-    "electricity": 4.65,
+    "bill": 5463,
+    "electricity": 6.07,
     "electricity_night": 3.0,
     "water": 34.0,
     "hot_water": 160.0,
@@ -987,7 +1063,9 @@
     "regulator": "Комитет по тарифам Томская обл.",
     "tariff_date": "2025-07-01",
     "tier": 3,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 9.0,
+    "bill_estimated": true
   },
   {
     "id": 35,
@@ -996,8 +1074,8 @@
     "short_name": "Курганская обл.",
     "district": "УФО",
     "center_city": "Курган",
-    "bill": 4993,
-    "electricity": 5.35,
+    "bill": 5708,
+    "electricity": 5.68,
     "electricity_night": 3.25,
     "water": 33.0,
     "hot_water": 155.0,
@@ -1010,7 +1088,9 @@
     "regulator": "Комитет по тарифам Курганская обл.",
     "tariff_date": "2025-07-01",
     "tier": 3,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 12.4,
+    "bill_estimated": true
   },
   {
     "id": 75,
@@ -1019,8 +1099,8 @@
     "short_name": "Удмуртия",
     "district": "ПФО",
     "center_city": "Ижевск",
-    "bill": 4997,
-    "electricity": 5.2,
+    "bill": 5844,
+    "electricity": 6.8,
     "electricity_night": 3.2,
     "water": 33.5,
     "hot_water": 158.0,
@@ -1033,7 +1113,9 @@
     "regulator": "Министерство тарифного регулирования Удмуртская Республика",
     "tariff_date": "2025-07-01",
     "tier": 3,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 15.0,
+    "bill_estimated": true
   },
   {
     "id": 18,
@@ -1042,8 +1124,8 @@
     "short_name": "Ивановская обл.",
     "district": "ЦФО",
     "center_city": "Иваново",
-    "bill": 5003,
-    "electricity": 5.5,
+    "bill": 5592,
+    "electricity": 7.88,
     "electricity_night": 3.3,
     "water": 33.5,
     "hot_water": 158.0,
@@ -1056,7 +1138,9 @@
     "regulator": "Комитет по тарифам Ивановская обл.",
     "tariff_date": "2025-07-01",
     "tier": 3,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 9.9,
+    "bill_estimated": true
   },
   {
     "id": 66,
@@ -1065,8 +1149,8 @@
     "short_name": "Смоленская обл.",
     "district": "ЦФО",
     "center_city": "Смоленск",
-    "bill": 5033,
-    "electricity": 5.4,
+    "bill": 5733,
+    "electricity": 5.96,
     "electricity_night": 3.28,
     "water": 33.5,
     "hot_water": 158.0,
@@ -1079,7 +1163,9 @@
     "regulator": "Комитет по тарифам Смоленская обл.",
     "tariff_date": "2025-07-01",
     "tier": 3,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 12.0,
+    "bill_estimated": true
   },
   {
     "id": 31,
@@ -1088,8 +1174,8 @@
     "short_name": "Костромская обл.",
     "district": "ЦФО",
     "center_city": "Кострома",
-    "bill": 5057,
-    "electricity": 5.45,
+    "bill": 5637,
+    "electricity": 7.54,
     "electricity_night": 3.3,
     "water": 34.0,
     "hot_water": 160.0,
@@ -1102,7 +1188,9 @@
     "regulator": "Комитет по тарифам Костромская обл.",
     "tariff_date": "2025-07-01",
     "tier": 3,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 9.6,
+    "bill_estimated": true
   },
   {
     "id": 7,
@@ -1111,8 +1199,8 @@
     "short_name": "Башкортостан",
     "district": "ПФО",
     "center_city": "Уфа",
-    "bill": 5125,
-    "electricity": 4.85,
+    "bill": 5770,
+    "electricity": 5.55,
     "electricity_night": 3.0,
     "water": 35.0,
     "hot_water": 165.0,
@@ -1125,7 +1213,9 @@
     "regulator": "Министерство тарифного регулирования Республика Башкортостан",
     "tariff_date": "2025-07-01",
     "tier": 3,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 10.7,
+    "bill_estimated": true
   },
   {
     "id": 24,
@@ -1134,8 +1224,8 @@
     "short_name": "Калужская обл.",
     "district": "ЦФО",
     "center_city": "Калуга",
-    "bill": 5138,
-    "electricity": 5.5,
+    "bill": 5732,
+    "electricity": 8.32,
     "electricity_night": 3.35,
     "water": 35.0,
     "hot_water": 165.0,
@@ -1148,7 +1238,9 @@
     "regulator": "Комитет по тарифам Калужская обл.",
     "tariff_date": "2025-07-01",
     "tier": 3,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 9.7,
+    "bill_estimated": true
   },
   {
     "id": 29,
@@ -1157,8 +1249,8 @@
     "short_name": "Кировская обл.",
     "district": "ПФО",
     "center_city": "Киров",
-    "bill": 5152,
-    "electricity": 4.98,
+    "bill": 5706,
+    "electricity": 6.68,
     "electricity_night": 3.05,
     "water": 34.5,
     "hot_water": 162.0,
@@ -1171,7 +1263,9 @@
     "regulator": "Комитет по тарифам Кировская обл.",
     "tariff_date": "2025-07-01",
     "tier": 3,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 8.9,
+    "bill_estimated": true
   },
   {
     "id": 10,
@@ -1180,8 +1274,8 @@
     "short_name": "Бурятия",
     "district": "ДФО",
     "center_city": "Улан-Удэ",
-    "bill": 5165,
-    "electricity": 4.4,
+    "bill": 5899,
+    "electricity": 6.85,
     "electricity_night": 2.9,
     "water": 34.0,
     "hot_water": 165.0,
@@ -1194,7 +1288,9 @@
     "regulator": "Министерство тарифного регулирования Республика Бурятия",
     "tariff_date": "2025-07-01",
     "tier": 3,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 12.3,
+    "bill_estimated": true
   },
   {
     "id": 11,
@@ -1203,8 +1299,8 @@
     "short_name": "Владимирская обл.",
     "district": "ЦФО",
     "center_city": "Владимир",
-    "bill": 5207,
-    "electricity": 5.65,
+    "bill": 5947,
+    "electricity": 7.83,
     "electricity_night": 3.4,
     "water": 36.0,
     "hot_water": 168.0,
@@ -1217,7 +1313,9 @@
     "regulator": "Комитет по тарифам Владимирская обл.",
     "tariff_date": "2025-07-01",
     "tier": 3,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 12.3,
+    "bill_estimated": true
   },
   {
     "id": 58,
@@ -1226,8 +1324,8 @@
     "short_name": "Самарская обл.",
     "district": "ПФО",
     "center_city": "Самара",
-    "bill": 5211,
-    "electricity": 5.4,
+    "bill": 5798,
+    "electricity": 6.95,
     "electricity_night": 3.28,
     "water": 35.0,
     "hot_water": 165.0,
@@ -1240,7 +1338,9 @@
     "regulator": "Комитет по тарифам Самарская обл.",
     "tariff_date": "2025-07-01",
     "tier": 3,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 9.4,
+    "bill_estimated": true
   },
   {
     "id": 70,
@@ -1249,8 +1349,8 @@
     "short_name": "Тверская обл.",
     "district": "ЦФО",
     "center_city": "Тверь",
-    "bill": 5251,
-    "electricity": 5.55,
+    "bill": 6072,
+    "electricity": 6.62,
     "electricity_night": 3.38,
     "water": 36.0,
     "hot_water": 170.0,
@@ -1263,7 +1363,9 @@
     "regulator": "Комитет по тарифам Тверская обл.",
     "tariff_date": "2025-07-01",
     "tier": 4,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 13.7,
+    "bill_estimated": true
   },
   {
     "id": 57,
@@ -1272,8 +1374,8 @@
     "short_name": "Рязанская обл.",
     "district": "ЦФО",
     "center_city": "Рязань",
-    "bill": 5258,
-    "electricity": 5.6,
+    "bill": 6096,
+    "electricity": 8.06,
     "electricity_night": 3.4,
     "water": 36.0,
     "hot_water": 170.0,
@@ -1286,7 +1388,9 @@
     "regulator": "Комитет по тарифам Рязанская обл.",
     "tariff_date": "2025-07-01",
     "tier": 4,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 14.0,
+    "bill_estimated": true
   },
   {
     "id": 46,
@@ -1295,8 +1399,8 @@
     "short_name": "Нижегородская обл.",
     "district": "ПФО",
     "center_city": "Нижний Новгород",
-    "bill": 5312,
-    "electricity": 5.5,
+    "bill": 5937,
+    "electricity": 6.19,
     "electricity_night": 3.35,
     "water": 36.5,
     "hot_water": 172.0,
@@ -1309,7 +1413,9 @@
     "regulator": "Комитет по тарифам Нижегородская обл.",
     "tariff_date": "2025-07-01",
     "tier": 4,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 9.9,
+    "bill_estimated": true
   },
   {
     "id": 17,
@@ -1318,8 +1424,8 @@
     "short_name": "Забайкальский край",
     "district": "ДФО",
     "center_city": "Чита",
-    "bill": 5327,
-    "electricity": 4.6,
+    "bill": 6068,
+    "electricity": 5.25,
     "electricity_night": 3.0,
     "water": 34.5,
     "hot_water": 168.0,
@@ -1332,7 +1438,9 @@
     "regulator": "РЭК Забайкальский край",
     "tariff_date": "2025-07-01",
     "tier": 4,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 12.0,
+    "bill_estimated": true
   },
   {
     "id": 72,
@@ -1341,8 +1449,8 @@
     "short_name": "Тульская обл.",
     "district": "ЦФО",
     "center_city": "Тула",
-    "bill": 5330,
-    "electricity": 5.6,
+    "bill": 5952,
+    "electricity": 7.6,
     "electricity_night": 3.4,
     "water": 36.5,
     "hot_water": 172.0,
@@ -1355,7 +1463,9 @@
     "regulator": "Комитет по тарифам Тульская обл.",
     "tariff_date": "2025-07-01",
     "tier": 4,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 9.8,
+    "bill_estimated": true
   },
   {
     "id": 63,
@@ -1364,8 +1474,8 @@
     "short_name": "Свердловская обл.",
     "district": "УФО",
     "center_city": "Екатеринбург",
-    "bill": 5392,
-    "electricity": 4.85,
+    "bill": 6010,
+    "electricity": 7.15,
     "electricity_night": 3.0,
     "water": 36.0,
     "hot_water": 170.0,
@@ -1378,7 +1488,9 @@
     "regulator": "Комитет по тарифам Свердловская обл.",
     "tariff_date": "2025-07-01",
     "tier": 4,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 9.6,
+    "bill_estimated": true
   },
   {
     "id": 55,
@@ -1387,8 +1499,8 @@
     "short_name": "Псковская обл.",
     "district": "СЗФО",
     "center_city": "Псков",
-    "bill": 5435,
-    "electricity": 5.6,
+    "bill": 6047,
+    "electricity": 7.65,
     "electricity_night": 3.42,
     "water": 36.5,
     "hot_water": 172.0,
@@ -1401,7 +1513,9 @@
     "regulator": "Комитет по тарифам Псковская обл.",
     "tariff_date": "2025-07-01",
     "tier": 4,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 9.4,
+    "bill_estimated": true
   },
   {
     "id": 16,
@@ -1410,8 +1524,8 @@
     "short_name": "Еврейская АО",
     "district": "ДФО",
     "center_city": "Биробиджан",
-    "bill": 5461,
-    "electricity": 4.55,
+    "bill": 6098,
+    "electricity": 6.32,
     "electricity_night": 2.95,
     "water": 35.5,
     "hot_water": 172.0,
@@ -1424,7 +1538,9 @@
     "regulator": "Комитет по тарифам Еврейская АО",
     "tariff_date": "2025-07-01",
     "tier": 4,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 9.8,
+    "bill_estimated": true
   },
   {
     "id": 41,
@@ -1433,8 +1549,8 @@
     "short_name": "Мордовия",
     "district": "ПФО",
     "center_city": "Саранск",
-    "bill": 5465,
-    "electricity": 5.9,
+    "bill": 6219,
+    "electricity": 6.15,
     "electricity_night": 3.55,
     "water": 36.0,
     "hot_water": 170.0,
@@ -1447,7 +1563,9 @@
     "regulator": "Министерство тарифного регулирования Республика Мордовия",
     "tariff_date": "2025-07-01",
     "tier": 4,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 11.9,
+    "bill_estimated": true
   },
   {
     "id": 92,
@@ -1456,21 +1574,23 @@
     "short_name": "Севастополь",
     "district": "ЮФО",
     "center_city": "Севастополь",
-    "bill": 5500,
-    "electricity": 5.43,
-    "electricity_night": 3.58,
-    "water": 58.63,
+    "bill": 6365,
+    "electricity": 5.71,
+    "electricity_night": 4.07,
+    "water": 67.75,
     "hot_water": 162.0,
-    "wastewater": 38.1,
-    "heat": 3358.22,
-    "gas": 6.18,
+    "wastewater": 44.08,
+    "heat": 3885.35,
+    "gas": 8.06,
     "garbage": 133.77,
     "index_2025": 11.0,
     "index_2024": 8.7,
     "regulator": "Управление по тарифам города Севастополя",
-    "tariff_date": "2025-07-01",
+    "tariff_date": "2026-10-01",
     "tier": 2,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 13.8,
+    "bill_estimated": true
   },
   {
     "id": 22,
@@ -1479,8 +1599,8 @@
     "short_name": "Калининградская обл.",
     "district": "СЗФО",
     "center_city": "Калининград",
-    "bill": 5522,
-    "electricity": 5.8,
+    "bill": 6172,
+    "electricity": 7.48,
     "electricity_night": 3.48,
     "water": 36.5,
     "hot_water": 172.0,
@@ -1493,7 +1613,9 @@
     "regulator": "Комитет по тарифам Калининградская обл.",
     "tariff_date": "2025-07-01",
     "tier": 4,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 9.9,
+    "bill_estimated": true
   },
   {
     "id": 69,
@@ -1502,8 +1624,8 @@
     "short_name": "Татарстан",
     "district": "ПФО",
     "center_city": "Казань",
-    "bill": 5560,
-    "electricity": 5.65,
+    "bill": 6412,
+    "electricity": 6.47,
     "electricity_night": 3.45,
     "water": 37.5,
     "hot_water": 178.0,
@@ -1516,7 +1638,9 @@
     "regulator": "Министерство тарифного регулирования Республика Татарстан",
     "tariff_date": "2025-07-01",
     "tier": 4,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 13.4,
+    "bill_estimated": true
   },
   {
     "id": 13,
@@ -1525,8 +1649,8 @@
     "short_name": "Вологодская обл.",
     "district": "СЗФО",
     "center_city": "Вологда",
-    "bill": 5583,
-    "electricity": 5.75,
+    "bill": 6229,
+    "electricity": 8.1,
     "electricity_night": 3.45,
     "water": 37.0,
     "hot_water": 175.0,
@@ -1539,7 +1663,9 @@
     "regulator": "Комитет по тарифам Вологодская обл.",
     "tariff_date": "2025-07-01",
     "tier": 4,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 9.7,
+    "bill_estimated": true
   },
   {
     "id": 80,
@@ -1548,8 +1674,8 @@
     "short_name": "Челябинская обл.",
     "district": "УФО",
     "center_city": "Челябинск",
-    "bill": 5620,
-    "electricity": 5.65,
+    "bill": 6516,
+    "electricity": 5.38,
     "electricity_night": 3.45,
     "water": 36.0,
     "hot_water": 170.0,
@@ -1562,7 +1688,9 @@
     "regulator": "Комитет по тарифам Челябинская обл.",
     "tariff_date": "2025-07-01",
     "tier": 4,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 14.0,
+    "bill_estimated": true
   },
   {
     "id": 85,
@@ -1571,8 +1699,8 @@
     "short_name": "Ярославская обл.",
     "district": "ЦФО",
     "center_city": "Ярославль",
-    "bill": 5903,
-    "electricity": 5.85,
+    "bill": 6844,
+    "electricity": 6.3,
     "electricity_night": 3.52,
     "water": 39.5,
     "hot_water": 188.0,
@@ -1585,7 +1713,9 @@
     "regulator": "Комитет по тарифам Ярославская обл.",
     "tariff_date": "2025-07-01",
     "tier": 4,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 14.0,
+    "bill_estimated": true
   },
   {
     "id": 59,
@@ -1594,21 +1724,23 @@
     "short_name": "Санкт-Петербург",
     "district": "СЗФО",
     "center_city": "Санкт-Петербург",
-    "bill": 5956,
-    "electricity": 6.97,
-    "electricity_night": 3.26,
-    "water": 42.42,
-    "hot_water": 145.6,
-    "wastewater": 42.42,
-    "heat": 2425.8,
-    "gas": 9.03,
+    "bill": 6942,
+    "electricity": 7.88,
+    "electricity_night": 4.92,
+    "water": 50.5,
+    "hot_water": 170.17,
+    "wastewater": 50.5,
+    "heat": 2836.15,
+    "gas": 10.1,
     "garbage": 135.0,
     "index_2025": 14.6,
     "index_2024": 9.8,
-    "regulator": "Департамент экономической политики Санкт-Петербург",
-    "tariff_date": "2025-07-01",
+    "regulator": "Комитет по тарифам Санкт-Петербурга",
+    "tariff_date": "2026-10-01",
     "tier": 4,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 14.6,
+    "bill_estimated": true
   },
   {
     "id": 27,
@@ -1617,8 +1749,8 @@
     "short_name": "Карелия",
     "district": "СЗФО",
     "center_city": "Петрозаводск",
-    "bill": 6145,
-    "electricity": 5.2,
+    "bill": 6868,
+    "electricity": 6.1,
     "electricity_night": 3.2,
     "water": 39.0,
     "hot_water": 185.0,
@@ -1631,7 +1763,9 @@
     "regulator": "Министерство тарифного регулирования Республика Карелия",
     "tariff_date": "2025-07-01",
     "tier": 4,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 9.9,
+    "bill_estimated": true
   },
   {
     "id": 54,
@@ -1640,8 +1774,8 @@
     "short_name": "Приморский край",
     "district": "ДФО",
     "center_city": "Владивосток",
-    "bill": 6145,
-    "electricity": 5.6,
+    "bill": 6824,
+    "electricity": 6.46,
     "electricity_night": 3.4,
     "water": 38.0,
     "hot_water": 182.0,
@@ -1654,7 +1788,9 @@
     "regulator": "РЭК Приморский край",
     "tariff_date": "2025-07-01",
     "tier": 4,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 9.2,
+    "bill_estimated": true
   },
   {
     "id": 47,
@@ -1663,8 +1799,8 @@
     "short_name": "Новгородская обл.",
     "district": "СЗФО",
     "center_city": "Великий Новгород",
-    "bill": 6229,
-    "electricity": 5.9,
+    "bill": 6937,
+    "electricity": 7.52,
     "electricity_night": 3.55,
     "water": 41.0,
     "hot_water": 195.0,
@@ -1677,7 +1813,9 @@
     "regulator": "Комитет по тарифам Новгородская обл.",
     "tariff_date": "2025-07-01",
     "tier": 5,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 9.5,
+    "bill_estimated": true
   },
   {
     "id": 53,
@@ -1686,8 +1824,8 @@
     "short_name": "Пермский край",
     "district": "ПФО",
     "center_city": "Пермь",
-    "bill": 6319,
-    "electricity": 5.8,
+    "bill": 7390,
+    "electricity": 6.98,
     "electricity_night": 3.55,
     "water": 40.0,
     "hot_water": 190.0,
@@ -1700,7 +1838,9 @@
     "regulator": "РЭК Пермский край",
     "tariff_date": "2025-07-01",
     "tier": 5,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 15.0,
+    "bill_estimated": true
   },
   {
     "id": 77,
@@ -1709,8 +1849,8 @@
     "short_name": "Хабаровский край",
     "district": "ДФО",
     "center_city": "Хабаровск",
-    "bill": 6340,
-    "electricity": 4.85,
+    "bill": 7086,
+    "electricity": 7.67,
     "electricity_night": 3.1,
     "water": 40.0,
     "hot_water": 192.0,
@@ -1723,7 +1863,9 @@
     "regulator": "РЭК Хабаровский край",
     "tariff_date": "2025-07-01",
     "tier": 5,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 9.9,
+    "bill_estimated": true
   },
   {
     "id": 37,
@@ -1732,8 +1874,8 @@
     "short_name": "Ленинградская обл.",
     "district": "СЗФО",
     "center_city": "Санкт-Петербург",
-    "bill": 6370,
-    "electricity": 6.3,
+    "bill": 7074,
+    "electricity": 7.44,
     "electricity_night": 3.8,
     "water": 45.0,
     "hot_water": 210.0,
@@ -1746,7 +1888,9 @@
     "regulator": "Комитет по тарифам Ленинградская обл.",
     "tariff_date": "2025-07-01",
     "tier": 5,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 9.2,
+    "bill_estimated": true
   },
   {
     "id": 5,
@@ -1755,8 +1899,8 @@
     "short_name": "Архангельская обл.",
     "district": "СЗФО",
     "center_city": "Архангельск",
-    "bill": 6562,
-    "electricity": 6.8,
+    "bill": 7474,
+    "electricity": 8.39,
     "electricity_night": 4.1,
     "water": 42.5,
     "hot_water": 198.0,
@@ -1769,7 +1913,9 @@
     "regulator": "Комитет по тарифам Архангельская обл.",
     "tariff_date": "2025-07-01",
     "tier": 5,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 12.0,
+    "bill_estimated": true
   },
   {
     "id": 79,
@@ -1778,8 +1924,8 @@
     "short_name": "ХМАО",
     "district": "УФО",
     "center_city": "Ханты-Мансийск",
-    "bill": 6756,
-    "electricity": 4.05,
+    "bill": 7606,
+    "electricity": 4.77,
     "electricity_night": 2.65,
     "water": 48.0,
     "hot_water": 232.0,
@@ -1792,7 +1938,9 @@
     "regulator": "Комитет по тарифам ХМАО",
     "tariff_date": "2025-07-01",
     "tier": 5,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 10.7,
+    "bill_estimated": true
   },
   {
     "id": 62,
@@ -1801,8 +1949,8 @@
     "short_name": "Сахалинская обл.",
     "district": "ДФО",
     "center_city": "Южно-Сахалинск",
-    "bill": 6878,
-    "electricity": 4.25,
+    "bill": 7624,
+    "electricity": 6.88,
     "electricity_night": 2.78,
     "water": 44.0,
     "hot_water": 215.0,
@@ -1815,7 +1963,9 @@
     "regulator": "Комитет по тарифам Сахалинская обл.",
     "tariff_date": "2025-07-01",
     "tier": 5,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 9.0,
+    "bill_estimated": true
   },
   {
     "id": 30,
@@ -1824,8 +1974,8 @@
     "short_name": "Коми",
     "district": "СЗФО",
     "center_city": "Сыктывкар",
-    "bill": 7169,
-    "electricity": 5.05,
+    "bill": 8406,
+    "electricity": 7.97,
     "electricity_night": 3.1,
     "water": 48.0,
     "hot_water": 230.0,
@@ -1838,7 +1988,9 @@
     "regulator": "Министерство тарифного регулирования Республика Коми",
     "tariff_date": "2025-07-01",
     "tier": 5,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 15.3,
+    "bill_estimated": true
   },
   {
     "id": 43,
@@ -1847,21 +1999,23 @@
     "short_name": "Московская обл.",
     "district": "ЦФО",
     "center_city": "Красногорск",
-    "bill": 7624,
-    "electricity": 6.95,
-    "electricity_night": 4.2,
+    "bill": 8746,
+    "electricity": 9.32,
+    "electricity_night": 5.15,
     "water": 58.0,
     "hot_water": 280.0,
     "wastewater": 46.0,
     "heat": 3200.0,
-    "gas": 9.4,
+    "gas": 10.73,
     "garbage": 125.0,
     "index_2025": 13.3,
     "index_2024": 10.7,
     "regulator": "Комитет по тарифам Московская обл.",
     "tariff_date": "2025-07-01",
     "tier": 5,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 12.8,
+    "bill_estimated": true
   },
   {
     "id": 61,
@@ -1870,8 +2024,8 @@
     "short_name": "Якутия",
     "district": "ДФО",
     "center_city": "Якутск",
-    "bill": 7806,
-    "electricity": 4.35,
+    "bill": 9439,
+    "electricity": 10.92,
     "electricity_night": 2.85,
     "water": 48.5,
     "hot_water": 235.0,
@@ -1884,7 +2038,9 @@
     "regulator": "Министерство тарифного регулирования Республика Саха (Якутия)",
     "tariff_date": "2025-07-01",
     "tier": 5,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 18.9,
+    "bill_estimated": true
   },
   {
     "id": 44,
@@ -1893,8 +2049,8 @@
     "short_name": "Мурманская обл.",
     "district": "СЗФО",
     "center_city": "Мурманск",
-    "bill": 8316,
-    "electricity": 5.0,
+    "bill": 9726,
+    "electricity": 4.72,
     "electricity_night": 3.2,
     "water": 50.0,
     "hot_water": 248.0,
@@ -1907,7 +2063,9 @@
     "regulator": "Комитет по тарифам Мурманская обл.",
     "tariff_date": "2025-07-01",
     "tier": 5,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 15.0,
+    "bill_estimated": true
   },
   {
     "id": 42,
@@ -1916,21 +2074,23 @@
     "short_name": "Москва",
     "district": "ЦФО",
     "center_city": "Москва",
-    "bill": 8649,
-    "electricity": 7.87,
-    "electricity_night": 3.71,
-    "water": 65.77,
-    "hot_water": 312.5,
-    "wastewater": 51.62,
-    "heat": 3738.4,
-    "gas": 9.71,
+    "bill": 10115,
+    "electricity": 8.9,
+    "electricity_night": 4.85,
+    "water": 73.79,
+    "hot_water": 377.8,
+    "wastewater": 60.24,
+    "heat": 4198.98,
+    "gas": 11.01,
     "garbage": 130.0,
     "index_2025": 15.0,
     "index_2024": 11.0,
-    "regulator": "Департамент экономической политики Москва",
-    "tariff_date": "2025-07-01",
+    "regulator": "Департамент экономической политики и развития г. Москвы",
+    "tariff_date": "2026-10-01",
     "tier": 5,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 15.0,
+    "bill_estimated": true
   },
   {
     "id": 39,
@@ -1939,8 +2099,8 @@
     "short_name": "Магаданская обл.",
     "district": "ДФО",
     "center_city": "Магадан",
-    "bill": 8773,
-    "electricity": 4.95,
+    "bill": 9797,
+    "electricity": 8.46,
     "electricity_night": 3.2,
     "water": 52.0,
     "hot_water": 255.0,
@@ -1953,7 +2113,9 @@
     "regulator": "Комитет по тарифам Магаданская обл.",
     "tariff_date": "2025-07-01",
     "tier": 5,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 9.8,
+    "bill_estimated": true
   },
   {
     "id": 25,
@@ -1962,8 +2124,8 @@
     "short_name": "Камчатский край",
     "district": "ДФО",
     "center_city": "Петропавловск-Камчатский",
-    "bill": 9428,
-    "electricity": 4.2,
+    "bill": 10538,
+    "electricity": 6.62,
     "electricity_night": 2.8,
     "water": 55.0,
     "hot_water": 270.0,
@@ -1976,7 +2138,9 @@
     "regulator": "РЭК Камчатский край",
     "tariff_date": "2025-07-01",
     "tier": 5,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 9.9,
+    "bill_estimated": true
   },
   {
     "id": 84,
@@ -1985,8 +2149,8 @@
     "short_name": "ЯНАО",
     "district": "УФО",
     "center_city": "Салехард",
-    "bill": 9993,
-    "electricity": 3.85,
+    "bill": 11687,
+    "electricity": 4.77,
     "electricity_night": 2.55,
     "water": 54.0,
     "hot_water": 265.0,
@@ -1999,7 +2163,9 @@
     "regulator": "Комитет по тарифам ЯНАО",
     "tariff_date": "2025-07-01",
     "tier": 5,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 15.0,
+    "bill_estimated": true
   },
   {
     "id": 45,
@@ -2008,8 +2174,8 @@
     "short_name": "Ненецкий АО",
     "district": "СЗФО",
     "center_city": "Нарьян-Мар",
-    "bill": 11053,
-    "electricity": 4.8,
+    "bill": 12590,
+    "electricity": 8.77,
     "electricity_night": 3.1,
     "water": 58.0,
     "hot_water": 285.0,
@@ -2022,7 +2188,9 @@
     "regulator": "Комитет по тарифам Ненецкий АО",
     "tariff_date": "2025-07-01",
     "tier": 5,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 12.0,
+    "bill_estimated": true
   },
   {
     "id": 83,
@@ -2031,8 +2199,8 @@
     "short_name": "Чукотский АО",
     "district": "ДФО",
     "center_city": "Анадырь",
-    "bill": 13632,
-    "electricity": 5.7,
+    "bill": 14973,
+    "electricity": 12.84,
     "electricity_night": 3.65,
     "water": 62.0,
     "hot_water": 305.0,
@@ -2045,6 +2213,8 @@
     "regulator": "Комитет по тарифам Чукотский АО",
     "tariff_date": "2025-07-01",
     "tier": 5,
-    "has_data": true
+    "has_data": true,
+    "index_2026": 8.0,
+    "bill_estimated": true
   }
 ]

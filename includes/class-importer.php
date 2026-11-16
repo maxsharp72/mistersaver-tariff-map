@@ -141,7 +141,8 @@ class MS_Tariff_Map_Importer {
         $district = $row['district'] ?? '';
 
         $content = "<p>На странице собраны актуальные тарифы на жилищно-коммунальные услуги в регионе <strong>{$name}</strong>. ";
-        $content .= "Данные обновлены с 1 июля 2025 года на основе официальных постановлений регионального регулятора";
+        $date_label = ! empty( $row['tariff_date'] ) ? date_i18n( 'j F Y', strtotime( $row['tariff_date'] ) ) . ' года' : '1 октября 2026 года';
+        $content .= "Данные актуальны с {$date_label} на основе официальных решений регионального регулятора";
         if ( $regulator ) {
             $content .= " ({$regulator})";
         }

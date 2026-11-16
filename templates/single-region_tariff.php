@@ -17,7 +17,7 @@ while ( have_posts() ) :
     $center_city      = MS_Tariff_Map_ACF::get( $region_id, 'center_city' );
     $bill             = MS_Tariff_Map_ACF::get( $region_id, 'avg_monthly_bill' );
     $bill_estimated   = MS_Tariff_Map_ACF::get( $region_id, 'bill_estimated' );
-    $index_2026       = MS_Tariff_Map_ACF::get( $region_id, 'index_2026', 4.0 );
+    $index_2026       = MS_Tariff_Map_ACF::get( $region_id, 'index_2026' );
     $regulator        = MS_Tariff_Map_ACF::get( $region_id, 'regulatory_body' );
     $regulator_url    = MS_Tariff_Map_ACF::get( $region_id, 'regulatory_url' );
     $tariff_date      = MS_Tariff_Map_ACF::get( $region_id, 'tariff_date' );
