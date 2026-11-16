@@ -80,6 +80,14 @@ class MS_Tariff_Map_Importer {
         $action = 'updated';
         if ( $existing ) {
             $post_data['ID'] = $existing->ID;
+            // Дефолтный (не LLM и не отредактированный вручную) текст обновляем вместе с тарифами,
+            // иначе на странице остаётся устаревшая дата актуальности.
+            $is_llm     = (bool) get_post_meta( $existing->ID, '_ms_llm_generated_at', true );
+            $is_default = strpos( (string) $existing->post_content, '<!-- ms-tariff-table -->' ) !== false
+                       && strpos( (string) $existing->post_content, 'На странице собраны актуальные тарифы' ) !== false;
+            if ( ! $is_llm && $is_default ) {
+                $post_data['post_content'] = self::generate_default_content( $row );
+            }
             $post_id = wp_update_post( $post_data, true );
         } else {
             $post_data['post_content'] = self::generate_default_content( $row );
