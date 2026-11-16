@@ -175,10 +175,10 @@ PROMPT;
             $lines[] = 'Средний платёж семьи 3 чел.: ' . $data['bill'] . ' ₽/мес';
         }
         if ( $data['electricity'] !== null ) {
-            $lines[] = 'Электроэнергия (день): ' . $data['electricity'] . ' ₽/кВт·ч';
+            $lines[] = 'Электроэнергия (одноставочный тариф): ' . $data['electricity'] . ' ₽/кВт·ч';
         }
         if ( $data['electricity_night'] !== null ) {
-            $lines[] = 'Электроэнергия (ночь): ' . $data['electricity_night'] . ' ₽/кВт·ч';
+            $lines[] = 'Электроэнергия (ночная зона): ' . $data['electricity_night'] . ' ₽/кВт·ч';
         }
         if ( $data['water'] !== null ) {
             $lines[] = 'Холодная вода: ' . $data['water'] . ' ₽/м³';

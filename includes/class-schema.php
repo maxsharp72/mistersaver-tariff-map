@@ -70,24 +70,26 @@ class MS_Tariff_Map_Schema {
     }
 
     private static function region_faqs( WP_Post $post, string $region_name, $bill ): array {
+        $r_in = ms_tariff_map_region_in( $post->ID );
+        $r_of = ms_tariff_map_region_of( $post->ID );
         $faqs = [
             [
-                'q' => "Когда повысятся тарифы ЖКХ в {$region_name}?",
+                'q' => "Когда повысятся тарифы ЖКХ {$r_in}?",
                 'a' => wp_strip_all_tags( ms_tariff_map_indexation_answer( MS_Tariff_Map_ACF::get( $post->ID, 'index_2026' ) ) ),
             ],
             [
-                'q' => "Как рассчитать квитанцию ЖКХ в {$region_name}?",
+                'q' => "Как рассчитать квитанцию ЖКХ {$r_in}?",
                 'a' => 'Используйте калькулятор на MisterSaver — введите площадь квартиры, число прописанных и потребление, и калькулятор сам подставит тарифы региона.',
             ],
             [
-                'q' => "Где посмотреть официальные тарифы {$region_name}?",
+                'q' => "Где посмотреть официальные тарифы {$r_of}?",
                 'a' => 'Официальные тарифы публикуются на сайте регионального регулятора: ' . ( MS_Tariff_Map_ACF::get( $post->ID, 'regulatory_url' ) ?: 'см. сайт регионального комитета по тарифам.' ),
             ],
         ];
         if ( $bill ) {
             $faqs[] = [
-                'q' => "Сколько в среднем платят за ЖКУ в {$region_name}?",
-                'a' => 'Средний платёж семьи из 3 человек в ' . $region_name . ' составляет около ' . number_format( (float) $bill, 0, ',', ' ' ) . ' ₽ в месяц.',
+                'q' => "Сколько в среднем платят за ЖКУ {$r_in}?",
+                'a' => 'Средний платёж семьи из 3 человек ' . $r_in . ' составляет около ' . number_format( (float) $bill, 0, ',', ' ' ) . ' ₽ в месяц.',
             ];
         }
 

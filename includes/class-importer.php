@@ -103,6 +103,8 @@ class MS_Tariff_Map_Importer {
         $field_map = [
             'region_id'                => 'id',
             'region_name_short'        => 'short_name',
+            'region_name_in'           => 'name_in',
+            'region_name_of'           => 'name_of',
             'federal_district'         => 'district',
             'center_city'              => 'center_city',
             'lat'                      => 'lat',
@@ -160,7 +162,7 @@ class MS_Tariff_Map_Importer {
         $content .= "Используйте таблицу ниже, чтобы посмотреть тарифы на электроэнергию, холодную и горячую воду, газ, отопление и ТКО.</p>\n\n";
 
         $content .= "<!-- ms-tariff-table -->\n\n";
-        $content .= "<p>Регион входит в {$district} федеральный округ. Сравните тарифы с соседними регионами на интерактивной карте.</p>\n";
+        $content .= "<p>Регион входит в {$district}. Сравните тарифы с соседними регионами на интерактивной карте.</p>\n";
 
         return $content;
     }

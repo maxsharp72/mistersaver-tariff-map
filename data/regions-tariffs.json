@@ -20,7 +20,9 @@
     "regulator": "Республиканская служба по тарифам ДНР",
     "tariff_date": "2025-07-01",
     "tier": 1,
-    "has_data": true
+    "has_data": true,
+    "name_in": "в Донецкой Народной Республике",
+    "name_of": "Донецкой Народной Республики"
   },
   {
     "id": 94,
@@ -43,7 +45,9 @@
     "regulator": "Комитет тарифного и ценового регулирования ЛНР",
     "tariff_date": "2025-07-01",
     "tier": 1,
-    "has_data": true
+    "has_data": true,
+    "name_in": "в Луганской Народной Республике",
+    "name_of": "Луганской Народной Республики"
   },
   {
     "id": 96,
@@ -66,7 +70,9 @@
     "regulator": "Служба цен и тарифов Херсонской области",
     "tariff_date": "2025-07-01",
     "tier": 1,
-    "has_data": true
+    "has_data": true,
+    "name_in": "в Херсонской области",
+    "name_of": "Херсонской области"
   },
   {
     "id": 19,
@@ -91,7 +97,9 @@
     "tier": 1,
     "has_data": true,
     "index_2026": 11.9,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Республике Ингушетия",
+    "name_of": "Республики Ингушетия"
   },
   {
     "id": 81,
@@ -116,7 +124,9 @@
     "tier": 1,
     "has_data": true,
     "index_2026": 9.2,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Чеченской Республике",
+    "name_of": "Чеченской Республики"
   },
   {
     "id": 15,
@@ -141,7 +151,9 @@
     "tier": 1,
     "has_data": true,
     "index_2026": 19.7,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Республике Дагестан",
+    "name_of": "Республики Дагестан"
   },
   {
     "id": 21,
@@ -166,7 +178,9 @@
     "tier": 1,
     "has_data": true,
     "index_2026": 9.6,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Кабардино-Балкарской Республике",
+    "name_of": "Кабардино-Балкарской Республики"
   },
   {
     "id": 26,
@@ -191,7 +205,9 @@
     "tier": 1,
     "has_data": true,
     "index_2026": 12.6,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Карачаево-Черкесской Республике",
+    "name_of": "Карачаево-Черкесской Республики"
   },
   {
     "id": 20,
@@ -216,7 +232,9 @@
     "tier": 1,
     "has_data": true,
     "index_2026": 13.0,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Иркутской области",
+    "name_of": "Иркутской области"
   },
   {
     "id": 78,
@@ -241,7 +259,9 @@
     "tier": 1,
     "has_data": true,
     "index_2026": 8.0,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Республике Хакасия",
+    "name_of": "Республики Хакасия"
   },
   {
     "id": 2,
@@ -266,7 +286,9 @@
     "tier": 1,
     "has_data": true,
     "index_2026": 11.6,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Республике Алтай",
+    "name_of": "Республики Алтай"
   },
   {
     "id": 23,
@@ -291,7 +313,9 @@
     "tier": 1,
     "has_data": true,
     "index_2026": 9.8,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Республике Калмыкия",
+    "name_of": "Республики Калмыкия"
   },
   {
     "id": 65,
@@ -316,7 +340,9 @@
     "tier": 1,
     "has_data": true,
     "index_2026": 16.3,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Республике Северная Осетия — Алания",
+    "name_of": "Республики Северная Осетия — Алания"
   },
   {
     "id": 33,
@@ -341,7 +367,9 @@
     "tier": 1,
     "has_data": true,
     "index_2026": 15.0,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Красноярском крае",
+    "name_of": "Красноярского края"
   },
   {
     "id": 6,
@@ -366,7 +394,9 @@
     "tier": 1,
     "has_data": true,
     "index_2026": 9.9,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Астраханской области",
+    "name_of": "Астраханской области"
   },
   {
     "id": 67,
@@ -391,7 +421,9 @@
     "tier": 1,
     "has_data": true,
     "index_2026": 22.0,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Ставропольском крае",
+    "name_of": "Ставропольского края"
   },
   {
     "id": 91,
@@ -416,7 +448,9 @@
     "tier": 2,
     "has_data": true,
     "index_2026": 11.9,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Республике Крым",
+    "name_of": "Республики Крым"
   },
   {
     "id": 95,
@@ -440,7 +474,9 @@
     "tariff_date": "2025-07-01",
     "tier": 1,
     "has_data": true,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Запорожской области",
+    "name_of": "Запорожской области"
   },
   {
     "id": 48,
@@ -465,7 +501,9 @@
     "tier": 1,
     "has_data": true,
     "index_2026": 10.7,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Новосибирской области",
+    "name_of": "Новосибирской области"
   },
   {
     "id": 3,
@@ -490,7 +528,9 @@
     "tier": 1,
     "has_data": true,
     "index_2026": 10.0,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Алтайском крае",
+    "name_of": "Алтайского края"
   },
   {
     "id": 50,
@@ -515,7 +555,9 @@
     "tier": 1,
     "has_data": true,
     "index_2026": 12.5,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Оренбургской области",
+    "name_of": "Оренбургской области"
   },
   {
     "id": 49,
@@ -540,7 +582,9 @@
     "tier": 1,
     "has_data": true,
     "index_2026": 13.0,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Омской области",
+    "name_of": "Омской области"
   },
   {
     "id": 4,
@@ -565,7 +609,9 @@
     "tier": 2,
     "has_data": true,
     "index_2026": 9.9,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Амурской области",
+    "name_of": "Амурской области"
   },
   {
     "id": 12,
@@ -590,7 +636,9 @@
     "tier": 2,
     "has_data": true,
     "index_2026": 11.2,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Волгоградской области",
+    "name_of": "Волгоградской области"
   },
   {
     "id": 73,
@@ -615,7 +663,9 @@
     "tier": 2,
     "has_data": true,
     "index_2026": 10.3,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Республике Тыва",
+    "name_of": "Республики Тыва"
   },
   {
     "id": 60,
@@ -640,7 +690,9 @@
     "tier": 2,
     "has_data": true,
     "index_2026": 11.1,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Саратовской области",
+    "name_of": "Саратовской области"
   },
   {
     "id": 36,
@@ -665,7 +717,9 @@
     "tier": 2,
     "has_data": true,
     "index_2026": 11.4,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Курской области",
+    "name_of": "Курской области"
   },
   {
     "id": 68,
@@ -690,7 +744,9 @@
     "tier": 2,
     "has_data": true,
     "index_2026": 17.5,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Тамбовской области",
+    "name_of": "Тамбовской области"
   },
   {
     "id": 51,
@@ -715,7 +771,9 @@
     "tier": 2,
     "has_data": true,
     "index_2026": 15.0,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Орловской области",
+    "name_of": "Орловской области"
   },
   {
     "id": 40,
@@ -740,7 +798,9 @@
     "tier": 2,
     "has_data": true,
     "index_2026": 14.9,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Республике Марий Эл",
+    "name_of": "Республики Марий Эл"
   },
   {
     "id": 14,
@@ -765,7 +825,9 @@
     "tier": 2,
     "has_data": true,
     "index_2026": 9.9,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Воронежской области",
+    "name_of": "Воронежской области"
   },
   {
     "id": 8,
@@ -790,7 +852,9 @@
     "tier": 2,
     "has_data": true,
     "index_2026": 13.0,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Белгородской области",
+    "name_of": "Белгородской области"
   },
   {
     "id": 38,
@@ -815,7 +879,9 @@
     "tier": 2,
     "has_data": true,
     "index_2026": 12.8,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Липецкой области",
+    "name_of": "Липецкой области"
   },
   {
     "id": 1,
@@ -840,7 +906,9 @@
     "tier": 2,
     "has_data": true,
     "index_2026": 9.6,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Республике Адыгея",
+    "name_of": "Республики Адыгея"
   },
   {
     "id": 56,
@@ -865,7 +933,9 @@
     "tier": 2,
     "has_data": true,
     "index_2026": 9.8,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Ростовской области",
+    "name_of": "Ростовской области"
   },
   {
     "id": 32,
@@ -890,7 +960,9 @@
     "tier": 2,
     "has_data": true,
     "index_2026": 13.7,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Краснодарском крае",
+    "name_of": "Краснодарского края"
   },
   {
     "id": 9,
@@ -915,7 +987,9 @@
     "tier": 2,
     "has_data": true,
     "index_2026": 11.1,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Брянской области",
+    "name_of": "Брянской области"
   },
   {
     "id": 82,
@@ -940,7 +1014,9 @@
     "tier": 2,
     "has_data": true,
     "index_2026": 10.7,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Чувашской Республике",
+    "name_of": "Чувашской Республики"
   },
   {
     "id": 76,
@@ -965,7 +1041,9 @@
     "tier": 2,
     "has_data": true,
     "index_2026": 9.9,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Ульяновской области",
+    "name_of": "Ульяновской области"
   },
   {
     "id": 52,
@@ -990,7 +1068,9 @@
     "tier": 3,
     "has_data": true,
     "index_2026": 9.7,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Пензенской области",
+    "name_of": "Пензенской области"
   },
   {
     "id": 74,
@@ -1015,7 +1095,9 @@
     "tier": 3,
     "has_data": true,
     "index_2026": 17.2,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Тюменской области",
+    "name_of": "Тюменской области"
   },
   {
     "id": 28,
@@ -1040,7 +1122,9 @@
     "tier": 3,
     "has_data": true,
     "index_2026": 19.8,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Кемеровской области (Кузбасс)",
+    "name_of": "Кемеровской области (Кузбасс)"
   },
   {
     "id": 71,
@@ -1065,7 +1149,9 @@
     "tier": 3,
     "has_data": true,
     "index_2026": 9.0,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Томской области",
+    "name_of": "Томской области"
   },
   {
     "id": 35,
@@ -1090,7 +1176,9 @@
     "tier": 3,
     "has_data": true,
     "index_2026": 12.4,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Курганской области",
+    "name_of": "Курганской области"
   },
   {
     "id": 75,
@@ -1115,7 +1203,9 @@
     "tier": 3,
     "has_data": true,
     "index_2026": 15.0,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Удмуртской Республике",
+    "name_of": "Удмуртской Республики"
   },
   {
     "id": 18,
@@ -1140,7 +1230,9 @@
     "tier": 3,
     "has_data": true,
     "index_2026": 9.9,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Ивановской области",
+    "name_of": "Ивановской области"
   },
   {
     "id": 66,
@@ -1165,7 +1257,9 @@
     "tier": 3,
     "has_data": true,
     "index_2026": 12.0,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Смоленской области",
+    "name_of": "Смоленской области"
   },
   {
     "id": 31,
@@ -1190,7 +1284,9 @@
     "tier": 3,
     "has_data": true,
     "index_2026": 9.6,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Костромской области",
+    "name_of": "Костромской области"
   },
   {
     "id": 7,
@@ -1215,7 +1311,9 @@
     "tier": 3,
     "has_data": true,
     "index_2026": 10.7,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Республике Башкортостан",
+    "name_of": "Республики Башкортостан"
   },
   {
     "id": 24,
@@ -1240,7 +1338,9 @@
     "tier": 3,
     "has_data": true,
     "index_2026": 9.7,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Калужской области",
+    "name_of": "Калужской области"
   },
   {
     "id": 29,
@@ -1265,7 +1365,9 @@
     "tier": 3,
     "has_data": true,
     "index_2026": 8.9,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Кировской области",
+    "name_of": "Кировской области"
   },
   {
     "id": 10,
@@ -1290,7 +1392,9 @@
     "tier": 3,
     "has_data": true,
     "index_2026": 12.3,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Республике Бурятия",
+    "name_of": "Республики Бурятия"
   },
   {
     "id": 11,
@@ -1315,7 +1419,9 @@
     "tier": 3,
     "has_data": true,
     "index_2026": 12.3,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "во Владимирской области",
+    "name_of": "Владимирской области"
   },
   {
     "id": 58,
@@ -1340,7 +1446,9 @@
     "tier": 3,
     "has_data": true,
     "index_2026": 9.4,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Самарской области",
+    "name_of": "Самарской области"
   },
   {
     "id": 70,
@@ -1365,7 +1473,9 @@
     "tier": 4,
     "has_data": true,
     "index_2026": 13.7,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Тверской области",
+    "name_of": "Тверской области"
   },
   {
     "id": 57,
@@ -1390,7 +1500,9 @@
     "tier": 4,
     "has_data": true,
     "index_2026": 14.0,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Рязанской области",
+    "name_of": "Рязанской области"
   },
   {
     "id": 46,
@@ -1415,7 +1527,9 @@
     "tier": 4,
     "has_data": true,
     "index_2026": 9.9,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Нижегородской области",
+    "name_of": "Нижегородской области"
   },
   {
     "id": 17,
@@ -1440,7 +1554,9 @@
     "tier": 4,
     "has_data": true,
     "index_2026": 12.0,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Забайкальском крае",
+    "name_of": "Забайкальского края"
   },
   {
     "id": 72,
@@ -1465,7 +1581,9 @@
     "tier": 4,
     "has_data": true,
     "index_2026": 9.8,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Тульской области",
+    "name_of": "Тульской области"
   },
   {
     "id": 63,
@@ -1490,7 +1608,9 @@
     "tier": 4,
     "has_data": true,
     "index_2026": 9.6,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Свердловской области",
+    "name_of": "Свердловской области"
   },
   {
     "id": 55,
@@ -1515,7 +1635,9 @@
     "tier": 4,
     "has_data": true,
     "index_2026": 9.4,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Псковской области",
+    "name_of": "Псковской области"
   },
   {
     "id": 16,
@@ -1540,7 +1662,9 @@
     "tier": 4,
     "has_data": true,
     "index_2026": 9.8,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Еврейской автономной области",
+    "name_of": "Еврейской автономной области"
   },
   {
     "id": 41,
@@ -1565,7 +1689,9 @@
     "tier": 4,
     "has_data": true,
     "index_2026": 11.9,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Республике Мордовия",
+    "name_of": "Республики Мордовия"
   },
   {
     "id": 92,
@@ -1590,7 +1716,9 @@
     "tier": 2,
     "has_data": true,
     "index_2026": 13.8,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Севастополе",
+    "name_of": "Севастополя"
   },
   {
     "id": 22,
@@ -1615,7 +1743,9 @@
     "tier": 4,
     "has_data": true,
     "index_2026": 9.9,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Калининградской области",
+    "name_of": "Калининградской области"
   },
   {
     "id": 69,
@@ -1640,7 +1770,9 @@
     "tier": 4,
     "has_data": true,
     "index_2026": 13.4,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Республике Татарстан",
+    "name_of": "Республики Татарстан"
   },
   {
     "id": 13,
@@ -1665,7 +1797,9 @@
     "tier": 4,
     "has_data": true,
     "index_2026": 9.7,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Вологодской области",
+    "name_of": "Вологодской области"
   },
   {
     "id": 80,
@@ -1690,7 +1824,9 @@
     "tier": 4,
     "has_data": true,
     "index_2026": 14.0,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Челябинской области",
+    "name_of": "Челябинской области"
   },
   {
     "id": 85,
@@ -1715,7 +1851,9 @@
     "tier": 4,
     "has_data": true,
     "index_2026": 14.0,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Ярославской области",
+    "name_of": "Ярославской области"
   },
   {
     "id": 59,
@@ -1740,7 +1878,9 @@
     "tier": 4,
     "has_data": true,
     "index_2026": 14.6,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Санкт-Петербурге",
+    "name_of": "Санкт-Петербурга"
   },
   {
     "id": 27,
@@ -1765,7 +1905,9 @@
     "tier": 4,
     "has_data": true,
     "index_2026": 9.9,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Республике Карелия",
+    "name_of": "Республики Карелия"
   },
   {
     "id": 54,
@@ -1790,7 +1932,9 @@
     "tier": 4,
     "has_data": true,
     "index_2026": 9.2,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Приморском крае",
+    "name_of": "Приморского края"
   },
   {
     "id": 47,
@@ -1815,7 +1959,9 @@
     "tier": 5,
     "has_data": true,
     "index_2026": 9.5,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Новгородской области",
+    "name_of": "Новгородской области"
   },
   {
     "id": 53,
@@ -1840,7 +1986,9 @@
     "tier": 5,
     "has_data": true,
     "index_2026": 15.0,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Пермском крае",
+    "name_of": "Пермского края"
   },
   {
     "id": 77,
@@ -1865,7 +2013,9 @@
     "tier": 5,
     "has_data": true,
     "index_2026": 9.9,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Хабаровском крае",
+    "name_of": "Хабаровского края"
   },
   {
     "id": 37,
@@ -1890,7 +2040,9 @@
     "tier": 5,
     "has_data": true,
     "index_2026": 9.2,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Ленинградской области",
+    "name_of": "Ленинградской области"
   },
   {
     "id": 5,
@@ -1915,7 +2067,9 @@
     "tier": 5,
     "has_data": true,
     "index_2026": 12.0,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Архангельской области",
+    "name_of": "Архангельской области"
   },
   {
     "id": 79,
@@ -1940,7 +2094,9 @@
     "tier": 5,
     "has_data": true,
     "index_2026": 10.7,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Ханты-Мансийском автономном округе — Югра",
+    "name_of": "Ханты-Мансийского автономного округа — Югра"
   },
   {
     "id": 62,
@@ -1965,7 +2121,9 @@
     "tier": 5,
     "has_data": true,
     "index_2026": 9.0,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Сахалинской области",
+    "name_of": "Сахалинской области"
   },
   {
     "id": 30,
@@ -1990,7 +2148,9 @@
     "tier": 5,
     "has_data": true,
     "index_2026": 15.3,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Республике Коми",
+    "name_of": "Республики Коми"
   },
   {
     "id": 43,
@@ -2015,7 +2175,9 @@
     "tier": 5,
     "has_data": true,
     "index_2026": 12.8,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Московской области",
+    "name_of": "Московской области"
   },
   {
     "id": 61,
@@ -2040,7 +2202,9 @@
     "tier": 5,
     "has_data": true,
     "index_2026": 18.9,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Республике Саха (Якутия)",
+    "name_of": "Республики Саха (Якутия)"
   },
   {
     "id": 44,
@@ -2065,7 +2229,9 @@
     "tier": 5,
     "has_data": true,
     "index_2026": 15.0,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Мурманской области",
+    "name_of": "Мурманской области"
   },
   {
     "id": 42,
@@ -2090,7 +2256,9 @@
     "tier": 5,
     "has_data": true,
     "index_2026": 15.0,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Москве",
+    "name_of": "Москвы"
   },
   {
     "id": 39,
@@ -2115,7 +2283,9 @@
     "tier": 5,
     "has_data": true,
     "index_2026": 9.8,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Магаданской области",
+    "name_of": "Магаданской области"
   },
   {
     "id": 25,
@@ -2140,7 +2310,9 @@
     "tier": 5,
     "has_data": true,
     "index_2026": 9.9,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Камчатском крае",
+    "name_of": "Камчатского края"
   },
   {
     "id": 84,
@@ -2165,7 +2337,9 @@
     "tier": 5,
     "has_data": true,
     "index_2026": 15.0,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Ямало-Ненецком автономном округе",
+    "name_of": "Ямало-Ненецкого автономного округа"
   },
   {
     "id": 45,
@@ -2190,7 +2364,9 @@
     "tier": 5,
     "has_data": true,
     "index_2026": 12.0,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Ненецком автономном округе",
+    "name_of": "Ненецкого автономного округа"
   },
   {
     "id": 83,
@@ -2215,6 +2391,8 @@
     "tier": 5,
     "has_data": true,
     "index_2026": 8.0,
-    "bill_estimated": true
+    "bill_estimated": true,
+    "name_in": "в Чукотском автономном округе",
+    "name_of": "Чукотского автономного округа"
   }
 ]

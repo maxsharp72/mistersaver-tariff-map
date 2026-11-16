@@ -18,7 +18,7 @@ if ( ! $partner_url && ! $cashback_url ) return;
 <section class="cta-block">
     <div class="cta-block__text">
         <h3>Платите ЖКУ без комиссии и с кэшбэком</h3>
-        <p>Подключите кэшбэк-карту партнёра MisterSaver — возвращайте до&nbsp;5% от стоимости коммунальных платежей в <?php echo esc_html( $region_name ); ?>.</p>
+        <p>Подключите кэшбэк-карту партнёра MisterSaver — возвращайте до&nbsp;5% от стоимости коммунальных платежей <?php echo esc_html( $region_in ?? ( 'в ' . $region_name ) ); ?>.</p>
     </div>
     <?php $url = $cashback_url ?: $partner_url; ?>
     <a href="<?php echo esc_url( $url ); ?>" class="cta-block__btn" target="_blank" rel="nofollow sponsored noopener">Подключить кэшбэк →</a>

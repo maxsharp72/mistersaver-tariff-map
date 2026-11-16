@@ -3,7 +3,7 @@
  * Plugin Name:       MisterSaver Tariff Map
  * Plugin URI:        https://github.com/maxsharp72/mistersaver-tariff-map
  * Description:       Интерактивная карта тарифов ЖКУ по 89 регионам России. CPT region_tariff + шорткод [ms_tariff_map] + Яндекс Tiles API + OpenLayers.
- * Version:           0.2.26
+ * Version:           0.2.27
  * Requires at least: 6.0
  * Requires PHP:      8.1
  * Author:            MisterSaver
@@ -18,7 +18,7 @@
 defined( 'ABSPATH' ) || exit;
 
 // Версия плагина.
-define( 'MS_TARIFF_MAP_VERSION', '0.2.26' );
+define( 'MS_TARIFF_MAP_VERSION', '0.2.27' );
 define( 'MS_TARIFF_MAP_FILE', __FILE__ );
 define( 'MS_TARIFF_MAP_DIR', plugin_dir_path( __FILE__ ) );
 define( 'MS_TARIFF_MAP_URL', plugin_dir_url( __FILE__ ) );
@@ -49,6 +49,24 @@ require_once MS_TARIFF_MAP_DIR . 'includes/class-redirector.php';
  *
  * @param float|string|null $index_2026 Средний индекс роста платы в регионе с 01.10.2026, %.
  */
+/**
+ * «в Москве» / «во Владимирской области». Фолбэк — «в {краткое название}».
+ */
+function ms_tariff_map_region_in( int $post_id ): string {
+    $v = MS_Tariff_Map_ACF::get( $post_id, 'region_name_in' );
+    if ( $v ) return (string) $v;
+    return 'в ' . ( MS_Tariff_Map_ACF::get( $post_id, 'region_name_short' ) ?: get_the_title( $post_id ) );
+}
+
+/**
+ * «Москвы» / «Московской области». Фолбэк — краткое название.
+ */
+function ms_tariff_map_region_of( int $post_id ): string {
+    $v = MS_Tariff_Map_ACF::get( $post_id, 'region_name_of' );
+    if ( $v ) return (string) $v;
+    return (string) ( MS_Tariff_Map_ACF::get( $post_id, 'region_name_short' ) ?: get_the_title( $post_id ) );
+}
+
 function ms_tariff_map_indexation_answer( $index_2026 ): string {
     $text = 'В 2026 году тарифы ЖКУ индексировались в два этапа: 1 января — на 1,7% (из-за повышения НДС), '
           . 'а основная индексация прошла 1 октября 2026 года (распоряжение Правительства РФ от 25.11.2025 № 3413-р).';
