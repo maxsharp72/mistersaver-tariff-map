@@ -7,7 +7,7 @@
 defined( 'ABSPATH' ) || exit;
 if ( ! $bill ) return;
 
-$avg_rf = 5500;
+$avg_rf = 5700;
 $diff_pct = round( ( $bill - $avg_rf ) / $avg_rf * 100 );
 $diff_text = $diff_pct > 0
     ? "на {$diff_pct}% дороже среднего по России"
@@ -30,7 +30,7 @@ $diff_class = $diff_pct > 0 ? 'warn' : 'good';
             <?php endif; ?>
         </div>
         <div class="bill-card__diff <?php echo esc_attr( $diff_class ); ?>">
-            <?php echo esc_html( $diff_text ); ?> (5 500 ₽)
+            <?php echo esc_html( $diff_text ); ?> (5 700 ₽)
         </div>
     </div>
 </section>

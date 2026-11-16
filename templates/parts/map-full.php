@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) || exit;
 <section class="page-hero">
     <h1>Карта тарифов ЖКУ по регионам России на 2026 год</h1>
     <p class="lead">Интерактивная карта стоимости коммунальных услуг по&nbsp;всем субъектам Российской Федерации. Кликните на регион, чтобы посмотреть тарифы на&nbsp;электричество, воду, газ и средний платёж семьи.</p>
-    <div class="meta"><span class="dot"></span> Данные актуальны с 1 июля 2025 года</div>
+    <div class="meta"><span class="dot"></span> Обновлено в ноябре 2026 года: индексация и тарифы на электроэнергию — с 1 октября 2026 года</div>
 </section>
 
 <section class="ms-mapcalc">
@@ -31,14 +31,14 @@ defined( 'ABSPATH' ) || exit;
             <div class="kpi__d" id="kpi-total-d">в датасете</div>
         </div>
         <div class="kpi">
-            <div class="kpi__l">Средне по РФ</div>
-            <div class="kpi__v">5 500 ₽</div>
+            <div class="kpi__l">Среднее по РФ</div>
+            <div class="kpi__v">5 700 ₽</div>
             <div class="kpi__d">семья 3 чел./мес</div>
         </div>
         <div class="kpi">
             <div class="kpi__l">Индексация 2026</div>
-            <div class="kpi__v">+4,0%</div>
-            <div class="kpi__d">с 1 июля 2026</div>
+            <div class="kpi__v">+9,9%</div>
+            <div class="kpi__d">с 1 октября 2026, в среднем по РФ</div>
         </div>
         <div class="kpi">
             <div class="kpi__l">Минимум</div>

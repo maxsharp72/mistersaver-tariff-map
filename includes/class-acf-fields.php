@@ -61,6 +61,8 @@ class MS_Tariff_Map_ACF {
             // --- Идентификация ---
             self::field( 'region_id',          'ID региона',             'number', [ 'instructions' => 'Числовой ID по реестру субъектов РФ' ] ),
             self::field( 'region_name_short',  'Краткое название',       'text',   [ 'instructions' => 'Например: Ленинградская обл.' ] ),
+            self::field( 'region_name_in',     'Название с предлогом «в»', 'text',  [ 'instructions' => 'Предложный падеж: «в Москве», «во Владимирской области»' ] ),
+            self::field( 'region_name_of',     'Название в родительном падеже', 'text', [ 'instructions' => '«Москвы», «Московской области»' ] ),
             self::field( 'federal_district',   'Федеральный округ',      'select', [
                 'choices' => MS_Tariff_Map_CPT::districts(),
             ] ),

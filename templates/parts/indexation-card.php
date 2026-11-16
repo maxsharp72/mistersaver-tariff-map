@@ -8,7 +8,7 @@ defined( 'ABSPATH' ) || exit;
 
 $idx_2024 = MS_Tariff_Map_ACF::get( $region_id, 'index_2024' );
 $idx_2025 = MS_Tariff_Map_ACF::get( $region_id, 'index_2025' );
-$idx_2026 = MS_Tariff_Map_ACF::get( $region_id, 'index_2026', 4.0 );
+$idx_2026 = MS_Tariff_Map_ACF::get( $region_id, 'index_2026' );
 ?>
 <section class="ms-region-page__index">
     <h2>
@@ -28,11 +28,13 @@ $idx_2026 = MS_Tariff_Map_ACF::get( $region_id, 'index_2026', 4.0 );
             <?php if ( $idx_2025 !== null ) : ?>
             <tr><td>2025</td><td class="num"><?php echo esc_html( number_format( (float) $idx_2025, 1, ',', '' ) ); ?>%</td><td>с 1 июля 2025 года</td></tr>
             <?php endif; ?>
+            <?php if ( $idx_2026 !== null && $idx_2026 !== '' ) : ?>
             <tr>
                 <td><strong>2026</strong></td>
                 <td class="num"><strong><?php echo esc_html( number_format( (float) $idx_2026, 1, ',', '' ) ); ?>%</strong></td>
-                <td>Постановление Правительства РФ № 3147-р</td>
+                <td>с 1 октября 2026 года (распоряжение Правительства РФ № 3413-р); с 1 января 2026 — +1,7%</td>
             </tr>
+            <?php endif; ?>
         </tbody>
     </table>
 </section>

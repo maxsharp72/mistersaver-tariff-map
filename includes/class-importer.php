@@ -80,6 +80,14 @@ class MS_Tariff_Map_Importer {
         $action = 'updated';
         if ( $existing ) {
             $post_data['ID'] = $existing->ID;
+            // Дефолтный (не LLM и не отредактированный вручную) текст обновляем вместе с тарифами,
+            // иначе на странице остаётся устаревшая дата актуальности.
+            $is_llm     = (bool) get_post_meta( $existing->ID, '_ms_llm_generated_at', true );
+            $is_default = strpos( (string) $existing->post_content, '<!-- ms-tariff-table -->' ) !== false
+                       && strpos( (string) $existing->post_content, 'На странице собраны актуальные тарифы' ) !== false;
+            if ( ! $is_llm && $is_default ) {
+                $post_data['post_content'] = self::generate_default_content( $row );
+            }
             $post_id = wp_update_post( $post_data, true );
         } else {
             $post_data['post_content'] = self::generate_default_content( $row );
@@ -95,6 +103,8 @@ class MS_Tariff_Map_Importer {
         $field_map = [
             'region_id'                => 'id',
             'region_name_short'        => 'short_name',
+            'region_name_in'           => 'name_in',
+            'region_name_of'           => 'name_of',
             'federal_district'         => 'district',
             'center_city'              => 'center_city',
             'lat'                      => 'lat',
@@ -141,7 +151,8 @@ class MS_Tariff_Map_Importer {
         $district = $row['district'] ?? '';
 
         $content = "<p>На странице собраны актуальные тарифы на жилищно-коммунальные услуги в регионе <strong>{$name}</strong>. ";
-        $content .= "Данные обновлены с 1 июля 2025 года на основе официальных постановлений регионального регулятора";
+        $date_label = ! empty( $row['tariff_date'] ) ? date_i18n( 'j F Y', strtotime( $row['tariff_date'] ) ) . ' года' : '1 октября 2026 года';
+        $content .= "Данные актуальны с {$date_label} на основе официальных решений регионального регулятора";
         if ( $regulator ) {
             $content .= " ({$regulator})";
         }
@@ -151,7 +162,7 @@ class MS_Tariff_Map_Importer {
         $content .= "Используйте таблицу ниже, чтобы посмотреть тарифы на электроэнергию, холодную и горячую воду, газ, отопление и ТКО.</p>\n\n";
 
         $content .= "<!-- ms-tariff-table -->\n\n";
-        $content .= "<p>Регион входит в {$district} федеральный округ. Сравните тарифы с соседними регионами на интерактивной карте.</p>\n";
+        $content .= "<p>Регион входит в {$district}. Сравните тарифы с соседними регионами на интерактивной карте.</p>\n";
 
         return $content;
     }

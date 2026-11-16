@@ -18,15 +18,15 @@ $rows = [
     [ 'Холодная вода',  'tariff_cold_water',        'руб/м³',     $icon_droplet,  'water-cold' ],
     [ 'Горячая вода',   'tariff_hot_water',         'руб/м³',     $icon_droplets, 'water-hot' ],
     [ 'Водоотведение',  'tariff_wastewater',        'руб/м³',     $icon_droplet,  'wastewater' ],
-    [ 'Электроэнергия (день)', 'tariff_electricity_day',   'руб/кВт·ч', $icon_zap, 'electricity-day' ],
-    [ 'Электроэнергия (ночь)', 'tariff_electricity_night', 'руб/кВт·ч', $icon_zap, 'electricity-night' ],
+    [ 'Электроэнергия (одноставочный тариф)', 'tariff_electricity_day',   'руб/кВт·ч', $icon_zap, 'electricity-day' ],
+    [ 'Электроэнергия (ночная зона)', 'tariff_electricity_night', 'руб/кВт·ч', $icon_zap, 'electricity-night' ],
     [ 'Отопление',      'tariff_heat',              'руб/Гкал',   $icon_flame,    'heat' ],
     [ 'Газ',            'tariff_gas',               'руб/м³',     $icon_flame,    'gas' ],
     [ 'ТКО',            'tariff_garbage',           'руб/чел./мес.', $icon_trash, 'garbage' ],
 ];
 ?>
 <section class="ms-region-page__tariffs">
-    <h2>Тарифы ЖКХ в <?php echo esc_html( $region_name ); ?> на 2026 год</h2>
+    <h2>Тарифы ЖКХ <?php echo esc_html( $region_in ?? ( 'в ' . $region_name ) ); ?> на 2026 год</h2>
     <table class="regions-table">
         <thead>
             <tr>

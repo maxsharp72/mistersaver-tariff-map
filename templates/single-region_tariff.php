@@ -17,11 +17,13 @@ while ( have_posts() ) :
     $center_city      = MS_Tariff_Map_ACF::get( $region_id, 'center_city' );
     $bill             = MS_Tariff_Map_ACF::get( $region_id, 'avg_monthly_bill' );
     $bill_estimated   = MS_Tariff_Map_ACF::get( $region_id, 'bill_estimated' );
-    $index_2026       = MS_Tariff_Map_ACF::get( $region_id, 'index_2026', 4.0 );
+    $index_2026       = MS_Tariff_Map_ACF::get( $region_id, 'index_2026' );
     $regulator        = MS_Tariff_Map_ACF::get( $region_id, 'regulatory_body' );
     $regulator_url    = MS_Tariff_Map_ACF::get( $region_id, 'regulatory_url' );
     $tariff_date      = MS_Tariff_Map_ACF::get( $region_id, 'tariff_date' );
     $slug             = get_post_field( 'post_name', $region_id );
+    $region_in        = ms_tariff_map_region_in( $region_id );   // «в Москве»
+    $region_of        = ms_tariff_map_region_of( $region_id );   // «Москвы»
 ?>
 
 <main class="ms-region-page">
@@ -60,7 +62,7 @@ while ( have_posts() ) :
                 <span> · Центр: <?php echo esc_html( $center_city ); ?></span>
             <?php endif; ?>
             <?php if ( $tariff_date ) : ?>
-                <span> · Данные актуальны с <?php echo esc_html( date_i18n( 'd F Y', strtotime( $tariff_date ) ) ); ?></span>
+                <span> · Данные актуальны с <?php echo esc_html( date_i18n( 'j F Y', strtotime( $tariff_date ) ) . ' года' ); ?></span>
             <?php endif; ?>
         </p>
     </header>

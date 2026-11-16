@@ -13,7 +13,7 @@ if ( ! empty( $region_id ) ) {
 }
 
 $headline = $region_name_local
-    ? 'Платить за ЖКУ в ' . esc_html( $region_name_local ) . ' выгоднее'
+    ? 'Платить за ЖКУ ' . esc_html( $region_in ?? ( 'в ' . $region_name_local ) ) . ' выгоднее'
     : 'Платить за ЖКУ выгоднее';
 
 // Единый стиль синей кнопки. Высота и ширина фиксированы — обе кнопки одинаковые.
