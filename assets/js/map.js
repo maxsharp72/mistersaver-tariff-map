@@ -831,7 +831,7 @@ function renderToplist() {
   const sorted = [...state.regions].sort((a, b) =>
     state.toplistMode === 'expensive' ? b.bill - a.bill : a.bill - b.bill
   ).slice(0, 5);
-  const avg = 5500;
+  const avg = 5700;
 
   t.innerHTML = sorted.map((r, i) => {
     const diff = Math.round((r.bill - avg) / avg * 100);

@@ -31,7 +31,7 @@ defined( 'ABSPATH' ) || exit;
             <div class="kpi__d" id="kpi-total-d">в датасете</div>
         </div>
         <div class="kpi">
-            <div class="kpi__l">Средне по РФ</div>
+            <div class="kpi__l">Среднее по РФ</div>
             <div class="kpi__v">5 700 ₽</div>
             <div class="kpi__d">семья 3 чел./мес</div>
         </div>
